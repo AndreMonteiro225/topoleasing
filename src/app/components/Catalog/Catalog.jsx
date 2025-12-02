@@ -37,7 +37,7 @@ export default function Catalog() {
       </div>
 
       {/* Grid de Cards */}
-      {/* Adicionamos key={filter} para forçar o re-render e disparar a animação CSS */}
+      {/* key={filter} para forçar o re-render e disparar a animação CSS */}
       <div key={filter} className={styles.catalogContainer}>
         {filteredItems.map(item => (
           <ProductCard key={item.id} item={item} />

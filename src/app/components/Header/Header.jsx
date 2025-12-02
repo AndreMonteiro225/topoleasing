@@ -1,24 +1,26 @@
 'use client';
 import { useState } from 'react';
 import styles from './Header.module.css'; 
+import Link from 'next/link';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
+  
   return (
     <>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <i className="fas fa-layer-group"></i> Topoleasing
+          <Link href="/"><i className="fas fa-layer-group"></i> Topoleasing</Link>
         </div>
 
         {/* Desktop Menu */}
         <nav className={styles.menuDesktop}>
-          <a href="#catalog">Equipamentos</a>
-          <a href="#location">Localização</a>
-          <a href="#contact">Fale Conosco</a>
+          <Link href="/servicesPage">Serviços</Link>
+          <a href="/#catalog">Equipamentos</a>
+          <a href="/#location">Localização</a>
+          <a href="/#contact">Fale Conosco</a>
         </nav>
 
         {/* Mobile Toggle */}
