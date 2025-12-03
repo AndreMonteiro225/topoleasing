@@ -3,6 +3,15 @@
   color: var(--white);
   padding: 40px 20px;
   text-align: center;
+  
+}
+
+.slider {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow-x: auto;
 }
 
 .title {
