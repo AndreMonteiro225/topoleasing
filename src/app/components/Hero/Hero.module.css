@@ -30,12 +30,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.9) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%);
   z-index: 2;
 }
 
@@ -55,7 +53,7 @@
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: -1px;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
@@ -64,7 +62,7 @@
   opacity: 0.9;
   margin-bottom: 2.5rem;
   line-height: 1.6;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .ctaButton {
@@ -94,12 +92,13 @@
 /* --- Controles e Timer --- */
 .controls {
   position: absolute;
-  top: 6rem;
-  left: 50%;
+  bottom: 7rem;
+  left: 10rem;
   transform: translateX(-50%);
   z-index: 20;
   display: flex;
-  align-items: center; /* Centraliza verticalmente os botões e o timer */
+  align-items: center;
+  /* Centraliza verticalmente os botões e o timer */
   gap: 20px;
 }
 
@@ -115,19 +114,23 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
 }
+
 .navBtn i {
   font-size: 1.5rem;
 }
+
 .navBtn:hover {
   background: var(--white);
   color: var(--dark-blue);
   transform: scale(1.1);
 }
 
-.navBtn, .timerContainer {
+.navBtn,
+.timerContainer {
   width: 55px;
   height: 55px;
 }
+
 /* --- TIMER CIRCULAR --- */
 .timerContainer {
   position: relative;
@@ -139,7 +142,8 @@
 .timerSvg {
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg); /* Começa do topo (12h) */
+  transform: rotate(-90deg);
+  /* Começa do topo (12h) */
 }
 
 .timerBg {
@@ -150,12 +154,14 @@
 
 .timerProgress {
   fill: none;
-  stroke: #F0A500; /* Cor Âmbar */
+  stroke: #F0A500;
+  /* Cor Âmbar */
   stroke-width: 3;
   stroke-linecap: round;
   /* O perímetro de um círculo com r=18 é 2 * pi * 18 ≈ 113 */
   stroke-dasharray: 113;
-  stroke-dashoffset: 113; /* Começa vazio */
+  stroke-dashoffset: 113;
+  /* Começa vazio */
   animation-name: countdown;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -163,10 +169,13 @@
 
 @keyframes countdown {
   from {
-    stroke-dashoffset: 113; /* Vazio */
+    stroke-dashoffset: 113;
+    /* Vazio */
   }
+
   to {
-    stroke-dashoffset: 0; /* Cheio */
+    stroke-dashoffset: 0;
+    /* Cheio */
   }
 }
 
@@ -207,32 +216,44 @@
   .hero {
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 100px; /* Mais espaço embaixo para os dots não colarem */
+    padding-bottom: 100px;
+    /* Mais espaço embaixo para os dots não colarem */
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     padding: 0 20px;
+    height: 85%;
   }
 
   .title {
-    font-size: 2.2rem; /* Um pouco menor para mobile */
+    font-size: 2.2rem;
+    margin: 2rem auto;
+    /* Um pouco menor para mobile */
+  }
+  
+  .subtitle {
+    margin: 4rem auto;
+    font-size: 1.7rem;
   }
 
-  .subtitle {
-    font-size: 1rem;
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    top: 50px;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  /* .controls {
-    display: none; 
-  } */
-  
+
   .overlay {
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.5) 60%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
+    background: linear-gradient(to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.2) 100%);
   }
 }

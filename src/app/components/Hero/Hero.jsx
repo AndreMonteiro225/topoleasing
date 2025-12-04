@@ -68,7 +68,7 @@ export default function Hero() {
           fill
           priority
           className={styles.bgImage}
-          quality={90}
+          quality={75}
         />
       </div>
 
