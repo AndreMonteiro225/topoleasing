@@ -1,148 +1,188 @@
+/* --- Container Principal --- */
 .hero {
-  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-  color: var(--white);
-  padding: 40px 0;
-  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 85vh; 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  overflow: hidden;
+  background-color: #111; /* Cor de fundo de segurança */
+}
+
+/* --- Imagem de Fundo --- */
+.bgImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- Overlay (Gradiente Escuro) --- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  z-index: 2;
+}
+
+/* --- Conteúdo de Texto --- */
+.content {
+  position: relative;
+  z-index: 10; /* Fica acima da imagem e do overlay */
+  max-width: 600px;
+  padding: 0 5%;
+  text-align: right;
+  color: var(--white);
 }
 
 .title {
-  font-size: 2rem;
-  margin: 0;
-  font-weight: 700;
-}
-.subtitle {
-  font-size: 1.5rem;
-  margin: 10px 0 20px 0;
-  opacity: 0.8;
-  font-weight: 500;
-}
-.caption{
-  font-size: 2rem;
-  margin: 0 2.1rem 5px 2rem;
-  opacity: 0.9;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  display: flex;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- Botão CTA (Call to Action) --- */
+.ctaButton {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  gap: 10px;
+  background-color: #F0A500; /* Cor Âmbar/Dourado */
+  color: #00332e; /* Cor escura para contraste */
   font-weight: 700;
-  color: var(--light-blue);
-}
-
-
-/* --- Container Principal do Carrossel --- */
-.carouselContainer {
-  position: relative;
-  width: 100%;
-  max-width: 96vw; 
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* --- Janela Visível (Máscara) --- */
-.carouselWindow {
-  width: 100%;
-  overflow: hidden; /* Esconde as imagens que estão "fora" */
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  background-color: rgba(255, 255, 255, 0.1); /* Placeholder enquanto carrega */
-  aspect-ratio: 16 / 9; /* Mantém a proporção retangular */
-}
-
-/* --- Trilho que se move --- */
-.carouselTrack {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Animação suave */
-}
-
-/* --- Cada Slide Individual --- */
-.slide {
-  min-width: 100%; /* Cada slide ocupa 100% da janela */
-  height: 100%;
-  position: relative; /* Necessário para o Image fill do Next.js */
-}
-
-/* --- Botões de Controle --- */
-.controlBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+  box-shadow: 0 4px 15px rgba(240, 165, 0, 0.4);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  background-color: #d18f00;
+  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.6);
+}
+
+/* --- Controles do Slide (Setas) --- */
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  z-index: 20;
+  display: flex;
+  gap: 20px;
+}
+
+.navBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
 }
 
-.controlBtn:hover {
-  background-color: var(--white);
-  color: var(--primary-blue);
-  transform: translateY(-50%) scale(1.2);
+.navBtn:hover {
+  background: var(--white);
+  color: var(--dark-blue);
+  transform: scale(1.1);
 }
 
-.prevBtn {
-  left: -20px; /* Fica um pouco para fora */
-}
-
-.nextBtn {
-  right: -20px; /* Fica um pouco para fora */
-}
-
-/* --- Indicadores (Bolinhas) --- */
+/* --- Indicadores (Dots) --- */
 .indicators {
   position: absolute;
-  bottom: 15px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
-  z-index: 10;
+  gap: 12px;
+  z-index: 20;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .activeDot {
-  background-color: var(--white);
+  background-color: #F0A500;
   transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(240, 165, 0, 0.8);
 }
 
 /* --- Responsividade --- */
 @media (max-width: 768px) {
-  .title {
-    font-size: 1.5rem;
+  .hero {
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 80px;
   }
-  
-  /* No mobile, botões ficam dentro da imagem para não "vazar" a tela */
-  .prevBtn { left: -10px; }
-  .nextBtn { right: -10px; }
-}
 
-@media (min-width: 768px) {
+  .content {
+    text-align: center;
+    padding: 0 20px;
+  }
+
   .title {
     font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .controls {
+    display: none; /* Esconde setas no mobile */
+  }
+  
+  .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
   }
 }
