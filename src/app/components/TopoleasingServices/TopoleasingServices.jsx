@@ -24,7 +24,7 @@ export default function TopoleasingServices() {
       name: "Levantamento planialtimétrico cadastral",
       description:
         "Realizamos levantamentos topográficos precisos para diversos fins.",
-      aboutBtn: "/CatalogPage",
+      aboutBtn: "/CadastralPlanimetricSurveyPage",
     },
     {
       id: 4,
