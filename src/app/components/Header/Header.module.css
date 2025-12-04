@@ -1,7 +1,9 @@
 .header {
   background-color: var(--white);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   position: sticky;
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  backdrop-filter: saturate(120%) blur(10px);
   top: 0;
   z-index: 100;
   padding: 15px 20px;

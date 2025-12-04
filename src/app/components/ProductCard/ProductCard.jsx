@@ -19,7 +19,7 @@ export default function ProductCard({ item }) {
   };
 
   const imgUrl = `https://placehold.co/400x300/e6f0ff/0044cc?text=${encodeURIComponent(item.img)}`;
-
+  const phone = '+5511970680610';
   return (
     <article className={styles.card}>
       <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ''}`}>
@@ -43,7 +43,7 @@ export default function ProductCard({ item }) {
           <p>Escolha uma opção:</p>
           
           <a 
-            href={`https://wa.me/5511999999999?text=Olá, o equipamento ${encodeURIComponent(item.name)} se encontra disponível para locação?`} 
+            href={`https://wa.me/${phone}?text=Olá, o equipamento ${encodeURIComponent(item.name)} se encontra disponível para locação?`} 
             target="_blank" 
             className={`${styles.actionBtn} ${styles.btnWhatsapp}`}
           >
@@ -54,7 +54,7 @@ export default function ProductCard({ item }) {
             <i className="fas fa-envelope"></i> Orçamento por E-mail
           </button>
           
-          <a href="tel:+5511999999999" className={`${styles.actionBtn} ${styles.btnCall}`}>
+          <a href={`tel:${phone}`} className={`${styles.actionBtn} ${styles.btnCall}`}>
             <i className="fas fa-phone"></i> Ligar Agora
           </a>
 
