@@ -139,5 +139,5 @@
 @media (max-width: 768px) {
   .heroTitle { font-size: 2rem; }
   .importanceBox { padding: 25px; }
-  .textBlock { text-align: left; } /* Melhor leitura em mobile */
+  .textBlock { text-align: left; }
 }

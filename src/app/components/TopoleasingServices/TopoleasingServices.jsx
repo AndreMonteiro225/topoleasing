@@ -31,21 +31,21 @@ export default function TopoleasingServices() {
       name: "Conferencias diárias",
       description:
         "Serviço de conferência diária para monitoramento e controle de obras.",
-      aboutBtn: "/CatalogPage",
+      aboutBtn: "/DailyConferencesPage",
     },
     {
       id: 5,
       name: "Loteamentos",
       description:
         "Serviço especializado em loteamentos para desenvolvimento urbano.",
-      aboutBtn: "/CatalogPage",
+      aboutBtn: "/SubdivisionsPage",
     },
     {
       id: 6,
       name: "Nivelamento industrial",
       description:
         "Oferecemos serviços de nivelamento industrial para garantir a precisão em projetos industriais.",
-      aboutBtn: "/CatalogPage",
+      aboutBtn: "/IndustrialLevelingPage",
     },
     {
       id: 7,
