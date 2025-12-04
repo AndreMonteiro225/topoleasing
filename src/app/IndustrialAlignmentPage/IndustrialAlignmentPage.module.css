@@ -1,0 +1,143 @@
+.container {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  min-height: 100vh;
+  background-color: var(--gray);
+}
+
+/* --- HERO SECTION --- */
+.heroSection {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  color: var(--white);
+  margin-bottom: 40px;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.contentSection {
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+.infoBox {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  color: var(--dark-blue);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.textBlock {
+  color: var(--text-color);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* --- GRID DE BENEFÍCIOS --- */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.benefitCard {
+  background: #f8faff;
+  border: 1px solid #e0e6ed;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  background: var(--light-blue);
+  color: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 15px auto;
+}
+
+.benefitTitle {
+  color: var(--dark-blue);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.benefitText {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* --- CTA BUTTON --- */
+.ctaContainer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btnCta {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 68, 204, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btnCta:hover {
+  background-color: var(--dark-blue);
+  transform: scale(1.05);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  .heroTitle { font-size: 2rem; }
+  .importanceBox { padding: 25px; }
+  .textBlock { text-align: left; }
+}
