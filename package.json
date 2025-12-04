@@ -1,6 +1,7 @@
 {
   "name": "topoleasing",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
@@ -8,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "type": "module",
     "next": "16.0.1",
     "nodemailer": "^7.0.10",
     "react": "19.2.0",
