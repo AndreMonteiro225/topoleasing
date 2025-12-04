@@ -1,16 +1,15 @@
-/* --- Container Principal --- */
+/* ... (Estilos anteriores mantidos: .hero, .bgImageContainer, .overlay, .content, etc.) ... */
 .hero {
   position: relative;
   width: 100%;
-  height: 85vh; 
+  height: 90vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  justify-content: flex-end;
   overflow: hidden;
-  background-color: #111; /* Cor de fundo de segurança */
+  background-color: #111;
 }
 
-/* --- Imagem de Fundo --- */
 .bgImageContainer {
   position: absolute;
   top: 0;
@@ -25,7 +24,6 @@
   object-position: center;
 }
 
-/* --- Overlay (Gradiente Escuro) --- */
 .overlay {
   position: absolute;
   top: 0;
@@ -41,10 +39,9 @@
   z-index: 2;
 }
 
-/* --- Conteúdo de Texto --- */
 .content {
   position: relative;
-  z-index: 10; /* Fica acima da imagem e do overlay */
+  z-index: 10;
   max-width: 600px;
   padding: 0 5%;
   text-align: right;
@@ -70,13 +67,12 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* --- Botão CTA (Call to Action) --- */
 .ctaButton {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background-color: #F0A500; /* Cor Âmbar/Dourado */
-  color: #00332e; /* Cor escura para contraste */
+  background-color: #F0A500;
+  color: #00332e;
   font-weight: 700;
   font-size: 1rem;
   padding: 15px 30px;
@@ -95,22 +91,22 @@
   box-shadow: 0 6px 20px rgba(240, 165, 0, 0.6);
 }
 
-/* --- Controles do Slide (Setas) --- */
+/* --- Controles e Timer --- */
 .controls {
   position: absolute;
-  bottom: 40px;
-  left: 50px;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 20;
   display: flex;
+  align-items: center; /* Centraliza verticalmente os botões e o timer */
   gap: 20px;
 }
 
 .navBtn {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -119,14 +115,68 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(5px);
 }
-
+.navBtn i {
+  font-size: 1.5rem;
+}
 .navBtn:hover {
   background: var(--white);
   color: var(--dark-blue);
   transform: scale(1.1);
 }
 
-/* --- Indicadores (Dots) --- */
+.navBtn, .timerContainer {
+  width: 55px;
+  height: 55px;
+}
+/* --- TIMER CIRCULAR --- */
+.timerContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timerSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Começa do topo (12h) */
+}
+
+.timerBg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 3;
+}
+
+.timerProgress {
+  fill: none;
+  stroke: #F0A500; /* Cor Âmbar */
+  stroke-width: 3;
+  stroke-linecap: round;
+  /* O perímetro de um círculo com r=18 é 2 * pi * 18 ≈ 113 */
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113; /* Começa vazio */
+  animation-name: countdown;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 113; /* Vazio */
+  }
+  to {
+    stroke-dashoffset: 0; /* Cheio */
+  }
+}
+
+.timerIcon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+}
+
+/* --- Indicadores --- */
 .indicators {
   position: absolute;
   bottom: 40px;
@@ -157,7 +207,7 @@
   .hero {
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 80px;
+    padding-bottom: 100px; /* Mais espaço embaixo para os dots não colarem */
   }
 
   .content {
@@ -166,23 +216,23 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Um pouco menor para mobile */
   }
 
   .subtitle {
     font-size: 1rem;
   }
   
-  .controls {
-    display: none; /* Esconde setas no mobile */
-  }
+  /* .controls {
+    display: none; 
+  } */
   
   .overlay {
     background: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.1) 100%
+      rgba(0, 0, 0, 0.5) 60%,
+      rgba(0, 0, 0, 0.2) 100%
     );
   }
 }
