@@ -43,7 +43,7 @@ export default function ProductCard({ item }) {
           <p>Escolha uma opção:</p>
           
           <a 
-            href={`https://wa.me/5511999999999?text=Olá, tenho interesse no ${encodeURIComponent(item.name)}`} 
+            href={`https://wa.me/5511999999999?text=Olá, o equipamento ${encodeURIComponent(item.name)} se encontra disponível para locação?`} 
             target="_blank" 
             className={`${styles.actionBtn} ${styles.btnWhatsapp}`}
           >

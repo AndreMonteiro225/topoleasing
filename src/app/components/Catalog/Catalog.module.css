@@ -26,6 +26,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
+  width: calc(100% / 2 - 1rem)
 }
 
 .catBtn.active, .catBtn:hover {
@@ -58,6 +59,7 @@
 @media (min-width: 768px) {
   .categories { justify-content: center; }
   .catalogContainer { grid-template-columns: repeat(2, 1fr); }
+  .catBtn { width: calc(100% / 5 - 1vw); }
 }
 
 @media (min-width: 1024px) {

@@ -45,7 +45,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className={styles.contactSection}>
+    <section id="budget-form" className={styles.contactSection}>
       <div className={styles.formContainer}>
         <h2>Solicitar Orçamento</h2>
         <form onSubmit={handleSubmit}>
