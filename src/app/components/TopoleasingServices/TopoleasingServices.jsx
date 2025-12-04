@@ -52,7 +52,7 @@ export default function TopoleasingServices() {
       name: "Alinhamento industrial de máquinas",
       description:
         "Oferecemos serviços de alinhamento industrial de máquinas para garantir a eficiência e precisão.",
-      aboutBtn: "/CatalogPage",
+      aboutBtn: "/IndustrialAlignmentPage",
     },
   ];
 
