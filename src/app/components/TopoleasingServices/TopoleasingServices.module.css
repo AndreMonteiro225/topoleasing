@@ -42,13 +42,19 @@
     border-radius: 8px;
     padding: 18px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-rows: .8fr 1fr .4fr;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .serviceLinks {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+    margin-top: 10px;
+    display: grid;
+    /* gap: 10px; */
+    /* grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); */
+    
 }
 
 .serviceLinks a {
@@ -57,6 +63,7 @@
 
 .btnRequest {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-top: 10px;
     padding: 10px 15px;
