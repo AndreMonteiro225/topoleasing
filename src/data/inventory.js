@@ -149,7 +149,69 @@ export const inventory = [
     }
   },
 
-  // --- NÍVEIS (Mantidos como complemento de portfólio) ---
+  // --- TEODOLITOS ---
+  {
+    id: 'theo-pentax-eth20f',
+    name: 'Teodolito Pentax ETH-20F',
+    type: 'theodolite',
+    desc: 'Ideal para obras de construção civil, alinhamento de estruturas e locação de pontos que exigem robustez.',
+    img: 'Pentax ETH-20F',
+    specs: {
+      precisionAngular: '20"',
+      magnification: '26x',
+      display: 'Duplo LCD',
+      battery: 'Caixa de pilhas (4x AA) - 40h operação',
+      compensator: 'Vertical Automático',
+      protection: 'IPX4'
+    }
+  },
+  {
+    id: 'theo-pentax-eth120f',
+    name: 'Teodolito Pentax ETH-120F',
+    type: 'theodolite',
+    desc: 'Teclado simplificado e operação intuitiva. Perfeito para equipes que buscam praticidade em campo.',
+    img: 'Pentax ETH-120F',
+    specs: {
+      precisionAngular: '20"',
+      magnification: '30x',
+      display: 'Duplo LCD de fácil leitura',
+      battery: 'Caixa de pilhas (4x AA)',
+      compensator: 'Não possui',
+      protection: 'Resistente a obras'
+    }
+  },
+  {
+    id: 'theo-topcon-dt209',
+    name: 'Teodolito Topcon DT-209',
+    type: 'theodolite',
+    desc: 'Extrema durabilidade da bateria e resistência superior a intempéries. Um dos mais confiáveis para ambientes hostis.',
+    img: 'Topcon DT-209',
+    specs: {
+      precisionAngular: '9"',
+      magnification: '26x',
+      display: 'Único LCD de alto contraste',
+      battery: 'Longa duração (aprox. 170h)',
+      compensator: 'Não possui',
+      protection: 'IP66 (Jatos potentes de água)'
+    }
+  },
+  {
+    id: 'theo-nikon-ne101',
+    name: 'Teodolito Nikon NE-101',
+    type: 'theodolite',
+    desc: 'Renomada qualidade óptica Nikon para visualização em baixa luz. Teclado numérico fácil com função de retenção de ângulo.',
+    img: 'Nikon NE-101',
+    specs: {
+      precisionAngular: '7"',
+      magnification: '30x (Óptica Nikon)',
+      display: 'Único Grande e Ergonômico',
+      battery: '48h (Pilhas AA)',
+      compensator: 'Não possui',
+      protection: 'IP54'
+    }
+  },
+
+  // --- NÍVEIS ---
   {
     id: 'level-topcon-atb4',
     name: 'Nível Automático Topcon AT-B4',
