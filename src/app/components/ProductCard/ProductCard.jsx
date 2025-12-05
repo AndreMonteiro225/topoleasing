@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './ProductCard.module.css';
+import Link from 'next/link';
 
 export default function ProductCard({ item }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -54,9 +55,9 @@ export default function ProductCard({ item }) {
             <i className="fas fa-envelope"></i> Orçamento por E-mail
           </button>
           
-          <a href={`tel:${phone}`} className={`${styles.actionBtn} ${styles.btnCall}`}>
-            <i className="fas fa-phone"></i> Ligar Agora
-          </a>
+          <Link href="/SpecsPage" className={`${styles.actionBtn} ${styles.btnCall}`}>
+            <i className="fas fa-info-circle"></i> Especificações
+          </Link>
 
           <button className={`${styles.actionBtn} ${styles.btnCancel}`} onClick={handleFlip}>
             <i className="fas fa-undo"></i> Voltar
