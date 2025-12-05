@@ -1,158 +1,193 @@
 export const inventory = [
-  // --- ESTAÇÕES TOTAIS ---
-  {
-    id: 'station-topcon-gts236w',
-    name: 'Estação Total Topcon GTS-236W',
-    type: 'station',
-    desc: 'Conectividade sem fio (Bluetooth) e robustez lendária. Ideal para obras que exigem transmissão de dados ágil em campo.',
-    img: 'Topcon GTS-236W',
-    specs: {
-      precisionAngular: '6" (segundos)',
-      precisionLinear: '±(2mm + 2ppm)',
-      rangePrism: '3.000m (1 prisma)',
-      connectivity: 'Bluetooth Integrado (Wireless)',
-      display: 'Duplo Display Alfanumérico',
-      protection: 'IP54 (Resistente a poeira e água)',
-      battery: 'Duração aprox. 10h (Ni-MH)',
-      compensator: 'Eixo simples com compensação líquida'
-    }
-  },
-  {
-    id: 'station-leica-ts06',
-    name: 'Estação Total Leica FlexLine TS06',
-    type: 'station',
-    desc: 'Alta precisão e medição sem prisma de longo alcance. A escolha premium para levantamentos cadastrais e engenharia de precisão.',
-    img: 'Leica TS06',
-    specs: {
-      precisionAngular: '2" (segundos)',
-      precisionLinear: '±(1.5mm + 2ppm)',
-      rangeNonPrism: 'R500 (500m sem prisma)',
-      rangePrism: '3.500m',
-      connectivity: 'USB, Bluetooth e Serial',
-      display: 'Tela Touchscreen Gráfica',
-      protection: 'IP55',
-      memory: '100.000 pontos internos'
-    }
-  },
+  // --- ESTAÇÕES TOTAIS TOPCON ---
   {
     id: 'station-topcon-es105',
     name: 'Estação Total Topcon ES-105',
     type: 'station',
-    desc: 'Tecnologia EDM avançada para medições rápidas. Feixe de laser estreito para medir cantos, paredes e cabos com exatidão.',
+    desc: 'Tecnologia EDM avançada para medições rápidas e precisas. Possui sistema TSshield™ de segurança e manutenção remota.',
     img: 'Topcon ES-105',
     specs: {
       precisionAngular: '5" (segundos)',
+      precisionLinear: '±(2mm + 2ppm)',
       rangeNonPrism: '500m',
-      communication: 'LongLink™ (Bluetooth de longa distância)',
-      battery: '36 horas de operação contínua',
-      protection: 'IP66 (À prova d\'água)',
-      trigger: 'Gatilho rápido lateral'
+      rangePrism: '4.000m',
+      connectivity: 'Bluetooth LongLink™, USB, Serial',
+      display: 'Duplo Display Gráfico Iluminado',
+      protection: 'IP66 (Alta resistência a água e poeira)',
+      battery: '36 horas de operação',
+      compensator: 'Eixo Duplo'
     }
   },
-
-  // --- TEODOLITOS ---
   {
-    id: 'theo-sokkia-dt200',
-    name: 'Teodolito Digital Sokkia DT-200',
-    type: 'theodolite',
-    desc: 'Óptica superior e mecânica de precisão. Equipamento compacto e leve, perfeito para alinhamentos e controle de prumo.',
-    img: 'Sokkia DT-200',
+    id: 'station-topcon-gts245nw',
+    name: 'Estação Total Topcon GTS-245NW',
+    type: 'station',
+    desc: 'Conectividade Bluetooth integrada e teclado alfanumérico completo. Ideal para levantamentos que exigem agilidade na entrada de dados.',
+    img: 'Topcon GTS-245NW',
     specs: {
       precisionAngular: '5"',
-      magnification: '30x',
-      protection: 'IP66 (Suporta jatos potentes de água)',
-      power: 'Pilhas AA (Fácil reposição em campo)',
-      display: 'Duplo LCD retroiluminado',
-      weight: '4.2kg'
+      precisionLinear: '±(2mm + 2ppm)',
+      rangeNonPrism: 'N/A (Requer prisma)',
+      rangePrism: '3.000m (1 prisma)',
+      connectivity: 'Bluetooth (Wireless), Serial RS-232',
+      display: 'Duplo Display Alfanumérico (24 teclas)',
+      protection: 'IP54',
+      battery: 'Aprox. 10h (Medição contínua)',
+      compensator: 'Eixo Único'
     }
   },
   {
-    id: 'theo-nikon-ne100',
-    name: 'Teodolito Nikon NE-100',
-    type: 'theodolite',
-    desc: 'Facilidade de uso com teclado ergonômico. Excelente para construção civil, locação de eixos e verificação de ângulos.',
-    img: 'Nikon NE-100',
+    id: 'station-topcon-gts246nw',
+    name: 'Estação Total Topcon GTS-246NW',
+    type: 'station',
+    desc: 'Versão de 6 segundos da série GTS-240NW. Oferece a mesma conectividade sem fio com excelente custo-benefício.',
+    img: 'Topcon GTS-246NW',
     specs: {
-      precisionAngular: '10"',
-      magnification: '30x',
-      image: 'Direta',
-      battery: '48h de operação (Pilhas Alcalinas)',
+      precisionAngular: '6"',
+      precisionLinear: '±(2mm + 2ppm)',
+      rangeNonPrism: 'N/A',
+      rangePrism: '3.000m (1 prisma)',
+      connectivity: 'Bluetooth, Serial',
+      display: 'Duplo Display',
       protection: 'IP54',
-      focus: 'Mínimo de 0.7m'
+      battery: 'Aprox. 10h',
+      compensator: 'Eixo Único'
+    }
+  },
+  {
+    id: 'station-topcon-gts235w',
+    name: 'Estação Total Topcon GTS-235W',
+    type: 'station',
+    desc: 'A clássica série GTS agora sem cabos. Robustez comprovada em campo com a liberdade da comunicação Bluetooth.',
+    img: 'Topcon GTS-235W',
+    specs: {
+      precisionAngular: '5"',
+      precisionLinear: '±(2mm + 2ppm)',
+      rangeNonPrism: 'N/A',
+      rangePrism: '3.000m',
+      connectivity: 'Bluetooth Integrado',
+      display: 'Duplo Display',
+      protection: 'IP54',
+      battery: 'Longa duração (Ni-MH)',
+      compensator: 'Eixo Único'
+    }
+  },
+  {
+    id: 'station-topcon-gts236w',
+    name: 'Estação Total Topcon GTS-236W',
+    type: 'station',
+    desc: 'Modelo de 6 segundos da série "W". Perfeita para obras de terraplenagem e locação onde a robustez é fundamental.',
+    img: 'Topcon GTS-236W',
+    specs: {
+      precisionAngular: '6"',
+      precisionLinear: '±(2mm + 2ppm)',
+      rangeNonPrism: 'N/A',
+      rangePrism: '3.000m',
+      connectivity: 'Bluetooth Integrado',
+      display: 'Duplo Display',
+      protection: 'IP54',
+      battery: '10h (aprox.)',
+      compensator: 'Eixo Único'
     }
   },
 
-  // --- NÍVEIS ---
+  // --- ESTAÇÕES TOTAIS NIKON ---
+  {
+    id: 'station-nikon-dtm332',
+    name: 'Estação Total Nikon DTM-332',
+    type: 'station',
+    desc: 'Lentes Nikon de alta qualidade para imagens nítidas. Bateria de longa duração e design leve e compacto.',
+    img: 'Nikon DTM-332',
+    specs: {
+      precisionAngular: '5"',
+      precisionLinear: '±(3mm + 2ppm)',
+      rangeNonPrism: 'N/A',
+      rangePrism: '2.300m (1 prisma)',
+      connectivity: 'Serial RS-232C',
+      display: 'Display Único (LCD)',
+      protection: 'IP55',
+      battery: '15h (Bateria interna recarregável)',
+      compensator: 'Eixo Único'
+    }
+  },
+
+  // --- ESTAÇÕES TOTAIS PENTAX ---
+  {
+    id: 'station-pentax-v227n',
+    name: 'Estação Total Pentax V-227N',
+    type: 'station',
+    desc: 'Interface intuitiva e grande capacidade de memória. Uma solução versátil para topografia geral.',
+    img: 'Pentax V-227N',
+    specs: {
+      precisionAngular: '7"',
+      precisionLinear: '±(3mm + 2ppm)',
+      rangeNonPrism: 'N/A',
+      rangePrism: '2.000m',
+      connectivity: 'Serial RS-232C',
+      display: 'Duplo Display Grande',
+      protection: 'IP54',
+      battery: '8h de uso contínuo',
+      memory: '24.000 pontos'
+    }
+  },
+  {
+    id: 'station-pentax-ats102',
+    name: 'Estação Total Pentax ATS-102',
+    type: 'station',
+    desc: 'Alta precisão de 2 segundos. Teclado alfanumérico e software PowerTopolite integrado para cálculos complexos em campo.',
+    img: 'Pentax ATS-102',
+    specs: {
+      precisionAngular: '2"',
+      precisionLinear: '±(2mm + 2ppm)',
+      rangeNonPrism: 'N/A (Refletorless opcional em alguns modelos, padrão com prisma)',
+      rangePrism: '3.000m',
+      connectivity: 'RS-232C',
+      display: 'Duplo Display Gráfico',
+      protection: 'IP55',
+      battery: 'Duas baterias (troca a quente)',
+      compensator: 'Eixo Único'
+    }
+  },
+
+  // --- NÍVEIS (Mantidos como complemento de portfólio) ---
   {
     id: 'level-topcon-atb4',
     name: 'Nível Automático Topcon AT-B4',
     type: 'level',
-    desc: 'Compensador magnético ultra-rápido e estável. Resiste a vibrações de máquinas pesadas no canteiro de obras.',
+    desc: 'Compensador magnético estável e resistente a vibrações. Padrão da indústria para nivelamento de obras.',
     img: 'Topcon AT-B4',
     specs: {
-      accuracy: '2.0mm (Desvio padrão por km duplo)',
+      accuracy: '2.0mm',
       magnification: '24x',
-      compensator: 'Magnético com amortecimento',
-      protection: 'IPX6 (Proteção contra chuvas fortes)',
-      minFocus: '0.2m (Ideal para espaços confinados)',
-      horizontalCircle: '360 graus'
-    }
-  },
-  {
-    id: 'level-leica-sprinter',
-    name: 'Nível Digital Leica Sprinter 150M',
-    type: 'level',
-    desc: 'Elimine erros de leitura humana. Leitura eletrônica de código de barras com cálculo automático de desníveis e distâncias.',
-    img: 'Leica Sprinter',
-    specs: {
-      accuracy: '1.5mm (Eletrônico)',
-      range: '2m a 100m (Eletrônico)',
-      memory: 'Armazenamento interno de medições',
-      functions: 'Cálculo de corte e aterro, rastreamento',
-      weight: '2.5kg',
-      dataOutput: 'USB para PC'
+      compensator: 'Magnético',
+      protection: 'IPX6',
+      weight: '1.7kg'
     }
   },
 
   // --- ACESSÓRIOS ---
   {
     id: 'acc-prism-set',
-    name: 'Conjunto Prisma com Suporte',
+    name: 'Conjunto Prisma com Bastão',
     type: 'accessory',
-    desc: 'Prisma circular de alta reflexão com suporte basculante e alvo. Compatível com Leica, Topcon e Sokkia.',
-    img: 'Prisma Topográfico',
+    desc: 'Kit completo com prisma circular, suporte e bastão extensível de 2.5m.',
+    img: 'Prisma Completo',
     specs: {
-      constant: '0mm / -30mm (Reversível)',
-      material: 'Polímero de alta resistência e vidro óptico',
-      thread: 'Rosca 5/8"',
-      color: 'Laranja de alta visibilidade'
+      constant: '0/-30mm',
+      poleHeight: '2.5m',
+      material: 'Alumínio'
     }
   },
   {
-    id: 'acc-tripod-alum',
-    name: 'Tripé de Alumínio Pesado',
+    id: 'acc-tripod',
+    name: 'Tripé de Alumínio',
     type: 'accessory',
-    desc: 'Estabilidade garantida para sua estação total. Travas duplas (Quick Clamp e Borboleta) para segurança extra.',
-    img: 'Tripé Alumínio',
+    desc: 'Tripé robusto com travas duplas para estabilidade máxima da estação total.',
+    img: 'Tripé Topografia',
     specs: {
-      headType: 'Plana',
-      locking: 'Dupla trava (rápida + parafuso)',
-      material: 'Alumínio anodizado',
-      weight: '4.5kg',
-      strap: 'Alça de transporte reforçada'
-    }
-  },
-  {
-    id: 'acc-bipod',
-    name: 'Bipé de Bastão Ajustável',
-    type: 'accessory',
-    desc: 'Liberte suas mãos e garanta a verticalidade do bastão. Sistema "Thumb Release" para ajuste rápido de altura.',
-    img: 'Bipé Bastão',
-    specs: {
-      material: 'Alumínio e Aço',
-      type: 'Botão de pressão (Thumb Release)',
-      compatibility: 'Bastões de 25mm a 32mm',
-      legs: 'Extensíveis para terrenos acidentados'
+      head: 'Plana',
+      lock: 'Dupla trava',
+      weight: '4.2kg'
     }
   }
 ];

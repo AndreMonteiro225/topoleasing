@@ -1,0 +1,164 @@
+.container {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background-color: var(--gray);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.title {
+  color: var(--dark-blue);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* --- CONTAINER DA TABELA (SCROLL NO MOBILE) --- */
+.tableWrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
+  -webkit-overflow-scrolling: touch;
+}
+
+.specsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  min-width: 800px; /* Garante que a tabela não fique espremida */
+}
+
+/* --- CABEÇALHO DA TABELA --- */
+.specsTable thead th {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.specsTable thead th:first-child {
+  background-color: var(--dark-blue); /* Coluna de rótulos mais escura */
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: 250px;
+}
+
+.specsTable thead th:last-child {
+  border-right: none;
+}
+
+.modelImage {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto 10px auto;
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+/* --- CORPO DA TABELA --- */
+.specsTable tbody td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Primeira coluna (Rótulos) */
+.specsTable tbody td:first-child {
+  font-weight: 700;
+  color: var(--dark-blue);
+  text-align: left;
+  background-color: #f9f9f9;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 2px solid #ddd; /* Separação visual clara */
+}
+
+.specsTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.specsTable tbody tr:hover td {
+  background-color: var(--light-blue); /* Highlight na linha ao passar o mouse */
+}
+
+/* Highlight na primeira coluna ao passar o mouse na linha */
+.specsTable tbody tr:hover td:first-child {
+  background-color: #e6eefc; 
+}
+
+/* --- BOTÕES DE AÇÃO --- */
+.btnRent {
+  background-color: #28a745; /* Verde Sucesso */
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: inline-block;
+  margin-top: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btnRent:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* --- ÍCONES E DESTAQUES --- */
+.featureYes {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.featureNo {
+  color: #dc3545;
+  opacity: 0.5;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  .title { font-size: 1.8rem; }
+  
+  /* Ajustes para a coluna fixa não quebrar o layout */
+  .specsTable thead th:first-child,
+  .specsTable tbody td:first-child {
+    position: static; 
+    border-right: 1px solid #eee;
+  }
+  
+  .specsTable {
+    min-width: auto; /* Deixa fluir */
+    display: block; /* Transforma em bloco para scrollar */
+    overflow-x: auto;
+  }
+}
