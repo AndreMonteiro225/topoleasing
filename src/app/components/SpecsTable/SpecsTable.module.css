@@ -11,6 +11,25 @@
   padding: 0 20px;
 }
 
+.catBtn {
+  width: 8rem;
+  white-space: nowrap;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-blue);
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--primary-blue);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  width: calc(100% / 2 - 1rem);
+}
+
+.catBtn.active {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
 .title {
   color: var(--dark-blue);
   font-size: 2.2rem;

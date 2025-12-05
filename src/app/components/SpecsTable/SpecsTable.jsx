@@ -1,23 +1,11 @@
 'use client';
-import { inventory } from '../../data/inventory';
-import ContactForm from '../components/ContactForm/ContactForm';
+import { useState } from 'react';
+import { inventory } from '../../../data/inventory';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import styles from './SpecsTable.module.css';
 
 export default function SpecsTable() {
-
-    const categories = [
-    { id: 'all', label: 'Todos' },
-    { id: 'station', label: 'Estações Totais' },
-    { id: 'theodolite', label: 'Teodolitos' },
-    { id: 'level', label: 'Níveis' },
-    { id: 'accessory', label: 'Acessórios' },
-  ];
-
-  const stations = inventory.filter(item => item.type === 'station');
-  const theodolites = inventory.filter(item => item.type === 'theodolite');
-  const levels = inventory.filter(item => item.type === 'level');
-  const accessories = inventory.filter(item => item.type === 'accessory');
-
+  
   // Função para preencher o formulário
   const handleRentClick = (modelName) => {
     const formElement = document.getElementById('budget-form');
@@ -29,6 +17,19 @@ export default function SpecsTable() {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
+    const [filter, setFilter] = useState('all');
+
+  const filteredItems = filter === 'all' 
+    ? inventory 
+    : inventory.filter(item => item.type === filter);
+
+  const categories = [
+    { id: 'all', label: 'Todos' },
+    { id: 'station', label: 'Estações Totais' },
+    { id: 'theodolite', label: 'Teodolitos' },
+    { id: 'level', label: 'Níveis' },
+    { id: 'accessory', label: 'Acessórios' },
+  ];
 
   return (
     <main className={styles.container}>
@@ -37,13 +38,30 @@ export default function SpecsTable() {
         <h1 className={styles.title}>Comparativo de Estações Totais</h1>
         <p className={styles.subtitle}>Encontre o equipamento ideal para a precisão que sua obra exige.</p>
       </div>
+        <section id="catalog">
+      {/* Filtros */}
+      <div className={styles.categoriesContainer}>
+        <div className={styles.categories}>
+          {categories.map(cat => (
+            <button 
+              key={cat.id}
+              className={`${styles.catBtn} ${filter === cat.id ? styles.active : ''}`}
+              onClick={() => setFilter(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      </section>
+      
 
       <div className={styles.tableWrapper}>
         <table className={styles.specsTable}>
           <thead>
             <tr>
               <th>Especificações</th>
-              {stations.map(station => (
+              {filteredItems.map(station => (
                 <th key={station.id}>
                   {/* Placeholder de imagem - idealmente usaria station.img se fosse um path real */}
                   <div className={styles.modelImage} style={{background: '#fff', color: '#333', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem'}}>
@@ -57,23 +75,23 @@ export default function SpecsTable() {
           <tbody>
             <tr>
               <td style={{position: 'sticky'}}>Precisão Angular</td>
-              {stations.map(s => <td key={s.id}>{s.specs.precisionAngular || '-'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.precisionAngular || '-'}</td>)}
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Precisão Linear (EDM)</td>
-              {stations.map(s => <td key={s.id}>{s.specs.precisionLinear || '-'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.precisionLinear || '-'}</td>)}
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Alcance Sem Prisma</td>
-              {stations.map(s => <td key={s.id}>{s.specs.rangeNonPrism || 'N/A'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.rangeNonPrism || 'N/A'}</td>)}
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Alcance Com Prisma</td>
-              {stations.map(s => <td key={s.id}>{s.specs.rangePrism || 'Até 3.000m'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.rangePrism || 'Até 3.000m'}</td>)}
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Conectividade</td>
-              {stations.map(s => (
+              {filteredItems.map(s => (
                 <td key={s.id}>
                   {s.specs.connectivity || s.specs.communication || 'Serial RS-232'}
                 </td>
@@ -81,16 +99,16 @@ export default function SpecsTable() {
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Proteção IP</td>
-              {stations.map(s => <td key={s.id}>{s.specs.protection || '-'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.protection || '-'}</td>)}
             </tr>
             <tr>
               <td style={{position: 'sticky'}}>Bateria</td>
-              {stations.map(s => <td key={s.id}>{s.specs.battery || '-'}</td>)}
+              {filteredItems.map(s => <td key={s.id}>{s.specs.battery || '-'}</td>)}
             </tr>
             {/* Linha de Ação (Botão) */}
             <tr>
               <td></td>
-              {stations.map(s => (
+              {filteredItems.map(s => (
                 <td key={s.id}>
                   <button 
                     className={styles.btnRent}
