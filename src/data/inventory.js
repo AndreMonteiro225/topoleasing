@@ -1,11 +1,51 @@
 export const inventory = [
   {
     id: 'station-001',
-    name: 'Estação Total Leica TS06',
+    name: 'Estação Total Topcon ES-105',
+    brand: 'Topcon',
+    model: 'ES-105',
+    type: 'station',
+    desc: 'Estação total precisa para topografia geral e levantamentos.',
+    img: 'Topcon ES-105'
+  },
+  
+  {
+    id: 'station-002',
+    name: 'Estação Total Topcon GTS-245NW',
+    brand: 'Topcon',
+    model: 'GTS-245NW',
+    type: 'station',
+    desc: 'Estação total precisa para topografia geral e levantamentos.',
+    img: 'Topcon GTS-245NW'
+  },
+  {
+    id: 'station-003',
+    name: 'Estação Total Topcon GTS-246NW',
+    brand: 'Topcon',
+    model: 'GTS-246NW',
+    type: 'station',
+    desc: 'Estação total precisa para topografia geral e levantamentos.',
+    img: 'Topcon GTS-246NW'
+  },
+  {
+    id: 'station-004',
+    name: 'Estação Total Topcon GTS-235W',
+    brand: 'Topcon',
+    model: 'GTS-235W',
+    type: 'station',
+    desc: 'Estação total precisa para topografia geral e levantamentos.',
+    img: 'Topcon GTS-235W'
+  },
+  {
+    id: 'station-005',
+    name: 'Estação Total Topcon GTS-236W',
+    brand: 'Topcon',
+    model: 'GTS-236W',
     desc: 'Estação total precisa para topografia geral e levantamentos.',
     type: 'station',
-    img: 'Leica TS06'
+    img: 'Topcon GTS-236W'
   },
+  
   {
     id: 'theo-001',
     name: 'Teodolito Sokkia DT-200',
