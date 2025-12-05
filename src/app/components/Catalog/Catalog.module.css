@@ -50,11 +50,12 @@
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 20px;;
   max-width: 1200px;
   margin: 0 auto;
   animation: fadeInUp 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
 
 @media (min-width: 768px) {
   .categories { justify-content: center; }
