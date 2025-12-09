@@ -11,7 +11,7 @@ export default function Hero() {
   const slides = [
     {
       id: 1,
-      image: "/9,96mbwebp.webp",
+      image: "/hero_1.webp",
       title: "Precisão que Define Horizontes",
       subtitle: "Tecnologia de ponta e expertise para projetos topográficos de qualquer escala.",
     },
