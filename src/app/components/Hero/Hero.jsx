@@ -46,13 +46,6 @@ export default function Hero() {
     setTimerKey((prev) => prev + 1);
   }
 
-  const handleScrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     const interval = setInterval(nextSlide, SLIDE_DURATION);
     return () => clearInterval(interval);
@@ -82,10 +75,10 @@ export default function Hero() {
           {slides[currentSlide].subtitle}
         </p>
         
-        <button onClick={handleScrollToContact} className={styles.ctaButton}>
+        <a href={`https://wa.me/+5511970680610/?text=${encodeURIComponent(`Olá, vim do site e gostaria de saber quais equipamentos se encontram disponíveis para locação.`)}`} className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
           Solicitar Orçamento 
           <i className="fas fa-arrow-right" style={{ marginLeft: '8px' }}></i>
-        </button>
+        </a>
       </div>
 
       {/* Controles Laterais */}

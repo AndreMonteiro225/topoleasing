@@ -10,7 +10,7 @@ export default function DailyConferences() {
     if (formElement) {
       // Preenche automaticamente o assunto no formulário
       const event = new CustomEvent('fillForm', { 
-        detail: 'Serviço: Conferências Diárias de Obra' 
+        detail: 'serviço Conferências Diárias de Obra' 
       });
       window.dispatchEvent(event);
 

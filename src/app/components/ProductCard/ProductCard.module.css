@@ -83,7 +83,23 @@
   justify-content: center;
   gap: 15px;
 }
+.cardImgContainer {
+  width: 100%;
+  height: 200px; 
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+}
+
+.cardImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .actionBtn {
   display: flex;
   align-items: center;

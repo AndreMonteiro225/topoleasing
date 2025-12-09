@@ -5,7 +5,7 @@ export const inventory = [
     name: 'Estação Total Topcon ES-105',
     type: 'station',
     desc: 'Tecnologia EDM avançada para medições rápidas e precisas. Possui sistema TSshield™ de segurança e manutenção remota.',
-    img: 'Topcon ES-105',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '5" (segundos)',
       precisionLinear: '±(2mm + 2ppm)',
@@ -23,7 +23,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-245NW',
     type: 'station',
     desc: 'Conectividade Bluetooth integrada e teclado alfanumérico completo. Ideal para levantamentos que exigem agilidade na entrada de dados.',
-    img: 'Topcon GTS-245NW',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '5"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -41,7 +41,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-246NW',
     type: 'station',
     desc: 'Versão de 6 segundos da série GTS-240NW. Oferece a mesma conectividade sem fio com excelente custo-benefício.',
-    img: 'Topcon GTS-246NW',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '6"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -59,7 +59,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-235W',
     type: 'station',
     desc: 'A clássica série GTS agora sem cabos. Robustez comprovada em campo com a liberdade da comunicação Bluetooth.',
-    img: 'Topcon GTS-235W',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '5"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -77,7 +77,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-236W',
     type: 'station',
     desc: 'Modelo de 6 segundos da série "W". Perfeita para obras de terraplenagem e locação onde a robustez é fundamental.',
-    img: 'Topcon GTS-236W',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '6"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -97,7 +97,7 @@ export const inventory = [
     name: 'Estação Total Nikon DTM-332',
     type: 'station',
     desc: 'Lentes Nikon de alta qualidade para imagens nítidas. Bateria de longa duração e design leve e compacto.',
-    img: 'Nikon DTM-332',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '5"',
       precisionLinear: '±(3mm + 2ppm)',
@@ -117,7 +117,7 @@ export const inventory = [
     name: 'Estação Total Pentax V-227N',
     type: 'station',
     desc: 'Interface intuitiva e grande capacidade de memória. Uma solução versátil para topografia geral.',
-    img: 'Pentax V-227N',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '7"',
       precisionLinear: '±(3mm + 2ppm)',
@@ -135,7 +135,7 @@ export const inventory = [
     name: 'Estação Total Pentax ATS-102',
     type: 'station',
     desc: 'Alta precisão de 2 segundos. Teclado alfanumérico e software PowerTopolite integrado para cálculos complexos em campo.',
-    img: 'Pentax ATS-102',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '2"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -155,7 +155,7 @@ export const inventory = [
     name: 'Teodolito Eletrônico Pentax ETH-20F',
     type: 'theodolite',
     desc: 'Ideal para obras de construção civil, alinhamento de estruturas e locação de pontos que exigem robustez.',
-    img: 'Pentax ETH-20F',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '20" (vinte segundos)',
       magnification: '26x',
@@ -170,7 +170,7 @@ export const inventory = [
     name: 'Teodolito Eletrônico Pentax ETH-120F',
     type: 'theodolite',
     desc: 'Teclado simplificado e operação intuitiva. Perfeito para equipes que buscam praticidade em campo.',
-    img: 'Pentax ETH-120F',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '20" (vinte segundos)',
       magnification: '30x',
@@ -185,7 +185,7 @@ export const inventory = [
     name: 'Teodolito Eletrônico Topcon DT-209',
     type: 'theodolite',
     desc: 'Extrema durabilidade da bateria e resistência superior a intempéries. Um dos mais confiáveis para ambientes hostis.',
-    img: 'Topcon DT-209',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '9" (nove segundos)',
       magnification: '26x',
@@ -200,7 +200,7 @@ export const inventory = [
     name: 'Teodolito Eletrônico Nikon NE-101',
     type: 'theodolite',
     desc: 'Renomada qualidade óptica Nikon para visualização em baixa luz. Teclado numérico fácil com função de retenção de ângulo.',
-    img: 'Nikon NE-101',
+    img: '/estacao_V-227N.webp',
     specs: {
       precisionAngular: '7" (sete segundos)',
       magnification: '30x (Óptica Nikon)',
@@ -217,7 +217,7 @@ export const inventory = [
     name: 'Nível Automático Wild NA2',
     type: 'level',
     desc: 'O padrão ouro em nivelamento. Compensador automático robusto e óptica de classe mundial para obras de alta precisão.',
-    img: 'Wild NA2',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '0.7mm (padrão) / 0.3mm (com micrômetro)',
       magnification: '32x',
@@ -232,7 +232,7 @@ export const inventory = [
     name: 'Nível Wild NK2',
     type: 'level',
     desc: 'Clássico nível de bolha bipartida. Ideal para ensino e obras onde a mecânica tradicional e confiável é preferida.',
-    img: 'Wild NK2',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '2.0mm por km duplo',
       magnification: '28x',
@@ -247,7 +247,7 @@ export const inventory = [
     name: 'Nível Automático Wild NAK1',
     type: 'level',
     desc: 'Versatilidade e rapidez. Possui círculo horizontal de vidro para medição de ângulos e taqueometria básica.',
-    img: 'Wild NAK1',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '2.0mm (Desvio padrão por km)',
       magnification: '24x',
@@ -262,7 +262,7 @@ export const inventory = [
     name: 'Nível de Precisão Wild N3',
     type: 'level',
     desc: 'A lenda da precisão. Projetado para geodésia, monitoramento de estruturas e nivelamento industrial de primeira ordem.',
-    img: 'Wild N3',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '0.2mm por km duplo (Alta Precisão)',
       magnification: '42x (Poderosa)',
@@ -277,7 +277,7 @@ export const inventory = [
     name: 'Nível Automático Topcon AT-B4',
     type: 'level',
     desc: 'Compensador magnético estável e resistente a vibrações. Padrão da indústria para nivelamento de obras.',
-    img: 'Topcon AT-B4',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '2.0mm',
       magnification: '24x',
@@ -291,7 +291,7 @@ export const inventory = [
     name: 'Nível Automático Kolida KL-32',
     type: 'level',
     desc: 'Excelente custo-benefício com alta ampliação. Compensador amortecido a ar para leituras estáveis em qualquer ambiente.',
-    img: 'Kolida KL-32',
+    img: '/estacao_V-227N.webp',
     specs: {
       accuracy: '1.0mm (Desvio padrão por km duplo)',
       magnification: '32x',
@@ -307,7 +307,7 @@ export const inventory = [
     name: 'Placa Plano-Paralela (Micrômetro) Wild GPM3',
     type: 'accessory',
     desc: 'Acessório de alta precisão para Nível Wild NA2. Permite leituras diretas de 0.1mm e estimativa de 0.01mm.',
-    img: 'Wild GPM3',
+    img: '/estacao_V-227N.webp',
     specs: {
       precision: 'Leitura direta 0.1mm / Estimada 0.01mm',
       compatibility: 'Nível Wild NA2 / NAK2',
@@ -320,7 +320,7 @@ export const inventory = [
     name: 'Conjunto Prisma com Bastão',
     type: 'accessory',
     desc: 'Kit completo com prisma circular, suporte e bastão extensível de 2.5m.',
-    img: 'Prisma Completo',
+    img: '/estacao_V-227N.webp',
     specs: {
       constant: '0/-30mm',
       poleHeight: '2.5m',
@@ -332,7 +332,7 @@ export const inventory = [
     name: 'Tripé de Alumínio',
     type: 'accessory',
     desc: 'Tripé robusto com travas duplas para estabilidade máxima da estação total.',
-    img: 'Tripé Topografia',
+    img: '/estacao_V-227N.webp',
     specs: {
       head: 'Plana',
       lock: 'Dupla trava',

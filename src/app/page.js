@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Hero />
-      <TopoleasingServices />
+      <TopoleasingServices />                                                                                                                                                                                                          
     </main>
   );
 }

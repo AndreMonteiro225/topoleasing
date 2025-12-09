@@ -10,11 +10,24 @@
   margin-bottom: 40px;
   padding: 0 20px;
 }
+.categoriesContainer{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.categories {
+  margin-bottom: 20px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .catBtn {
-  width: 8rem;
   white-space: nowrap;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: 1px solid var(--primary-blue);
   border-radius: 20px;
   background: var(--white);
@@ -22,7 +35,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
-  width: calc(100% / 2 - 1rem);
+  width: calc(100% / 2 - 1.2rem);
 }
 
 .catBtn.active {
@@ -45,7 +58,6 @@
 /* --- CONTAINER DA TABELA (SCROLL NO MOBILE) --- */
 .tableWrapper {
   width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
@@ -54,7 +66,7 @@
 
 .specsTable {
   width: 100%;
-  border-collapse: separate;
+  /* border-collapse: separate; */
   border-spacing: 0;
   background: var(--white);
   border-radius: 12px;
@@ -167,12 +179,18 @@
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
   .title { font-size: 1.8rem; }
-  
+  .catBtn {
+    display: flex;
+    width: 80vw;
+    justify-content: center;
+    margin: 2px auto;
+  }
   /* Ajustes para a coluna fixa não quebrar o layout */
   .specsTable thead th:first-child,
   .specsTable tbody td:first-child {
     position: static; 
     border-right: 1px solid #eee;
+    width: 8vw;
   }
   
   .specsTable {

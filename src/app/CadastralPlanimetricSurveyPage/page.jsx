@@ -10,7 +10,7 @@ export default function CadastralPlanimetricSurveyPage() {
     if (formElement) {
       // Preenche automaticamente o assunto no formulário
       const event = new CustomEvent('fillForm', { 
-        detail: 'Serviço: Levantamento Planialtimétrico Cadastral' 
+        detail: 'serviço Levantamento Planialtimétrico Cadastral' 
       });
       window.dispatchEvent(event);
 

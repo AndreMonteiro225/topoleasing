@@ -1,4 +1,5 @@
 'use client';
+import { inventory } from '../../../data/inventory';
 import { useState, useEffect } from 'react';
 import { sendEmail } from '../../../actions/send-email'; // Importamos a Server Action (caminho corrigido)
 import styles from './ContactForm.module.css';
@@ -9,9 +10,27 @@ export default function ContactForm() {
 
   useEffect(() => {
     const handleFillForm = (e) => {
-      setMessage(`Olá, tenho interesse no equipamento: ${e.detail}. Gostaria de saber valores e disponibilidade.`);
+      const raw = String(e.detail || '').trim();
+
+      // Detecta se o detail corresponde a algum item do inventário (catalog)
+      const isCatalogItem = inventory.some(
+        (it) => it.name === raw || raw.includes(it.name)
+      );
+
+      let messageText;
+      if (isCatalogItem) {
+        // Para itens do catálogo mantemos "equipamento"
+        messageText = `Olá, tenho interesse no equipamento ${raw}. Gostaria de saber valores e disponibilidade.`;
+      } else {
+        // Para serviços/outros, removemos um "equipamento" inicial acidental
+        const cleaned = raw.replace(/^equipamento\s*/i, '');
+        messageText = `Olá, tenho interesse no ${cleaned}. Gostaria de saber valores e disponibilidade.`;
+      }
+
+      setMessage(messageText);
+
       const nameInput = document.getElementById('name');
-      if(nameInput) setTimeout(() => nameInput.focus(), 500);
+      if (nameInput) setTimeout(() => nameInput.focus(), 500);
     };
 
     window.addEventListener('fillForm', handleFillForm);
@@ -51,7 +70,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Nome Completo</label>
-            <input name="name" type="text" id="name" placeholder="Ex: João Silva" required disabled={status.loading} />
+            <input name="name" type="text" id="name" placeholder="Ex: Nome completo" required disabled={status.loading} />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="email">E-mail</label>
@@ -66,7 +85,7 @@ export default function ContactForm() {
             <textarea 
               id="message" 
               name="message"
-              rows="4" 
+              rows="5" 
               placeholder="Faça sua solicitação ou tire suas dúvidas aqui..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}

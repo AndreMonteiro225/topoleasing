@@ -4,12 +4,14 @@ import styles from "./TopoleasingServices.module.css";
 import Link from "next/link";
 
 export default function TopoleasingServices() {
+
+  
   const services = [
     {
       id: 1,
       name: "Locação de Equipamentos",
       description:
-        "Oferecemos uma ampla variedade de equipamentos para locação.",
+        "Catálogo de equipamentos para locação.",
       aboutBtn: "/CatalogPage",
     },
     {
@@ -56,6 +58,7 @@ export default function TopoleasingServices() {
     },
   ];
 
+
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -81,12 +84,12 @@ export default function TopoleasingServices() {
 
   return (
     <main>
-      <div className={styles.header}>
+      <div className={styles.head}>
         <h1>Nossos Serviços</h1>
         <p>Conheça nossos serviços topográficos.</p>
       </div>
 
-      <section
+      <section id="services" style={{ scrollMarginTop: '1.8rem' }}
         ref={containerRef}
         className={`${styles.servicesContainer} ${
           styles["slide-in-blurred-left"]
@@ -97,9 +100,9 @@ export default function TopoleasingServices() {
             <h2>{service.name}</h2>
             <p>{service.description}</p>
             <nav className={styles.serviceLinks}>
-              <Link href={service.aboutBtn} className={styles.btnRequest}>
-                Solicitar
-              </Link>
+              <a href={`https://wa.me/+5511970680610/?text=${encodeURIComponent(`Gostaria de saber mais sobre como funciona o servico de ${service.name}.`)}`} className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-whatsapp"> </i>Solicitar pelo WhatsApp
+              </a>
               <Link href={service.aboutBtn} className={styles.btnRequest}>
                 Sobre
               </Link>

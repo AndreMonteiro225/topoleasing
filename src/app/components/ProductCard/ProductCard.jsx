@@ -1,7 +1,9 @@
-'use client';
-import { useState } from 'react';
-import styles from './ProductCard.module.css';
-import Link from 'next/link';
+"use client";
+import { useState } from "react";
+import styles from "./ProductCard.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import { inventory } from "../../../data/inventory";
 
 export default function ProductCard({ item }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -10,24 +12,29 @@ export default function ProductCard({ item }) {
 
   const handleEmailRequest = () => {
     // Lógica de scroll e preenchimento via evento customizado
-    const event = new CustomEvent('fillForm', { detail: item.name });
+    const event = new CustomEvent("fillForm", { detail: item.name });
     window.dispatchEvent(event);
-    
-    const formSection = document.getElementById('contact');
+
+    const formSection = document.getElementById("contact");
     if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
+      formSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const imgUrl = `https://placehold.co/400x300/e6f0ff/0044cc?text=${encodeURIComponent(item.img)}`;
-  const phone = '+5511970680610';
+  const phone = "+5511970680610";
   return (
     <article className={styles.card}>
-      <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ''}`}>
+      <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ""}`}>
         {/* FRENTE */}
         <div className={styles.cardFront}>
           <div className={styles.cardImgContainer}>
-            <img src={imgUrl} alt={item.name} className={styles.cardImg} />
+            <Image
+              width={600}
+              height={430}
+              quality={80}
+              src={item.img}
+              alt={item.name}
+              className={styles.cardImg}
+            />
           </div>
           <div className={styles.cardBody}>
             <h3 className={styles.cardTitle}>{item.name}</h3>
@@ -42,24 +49,35 @@ export default function ProductCard({ item }) {
         <div className={styles.cardBack}>
           <h3>{item.name}</h3>
           <p>Escolha uma opção:</p>
-          
-          <a 
-            href={`https://wa.me/${phone}?text=Olá, o equipamento ${encodeURIComponent(item.name)} se encontra disponível para locação?`} 
-            target="_blank" 
+
+          <a
+            href={`https://wa.me/${phone}?text=Olá, o equipamento ${encodeURIComponent(
+              item.name
+            )} se encontra disponível para locação?`}
+            target="_blank"
             className={`${styles.actionBtn} ${styles.btnWhatsapp}`}
           >
             <i className="fab fa-whatsapp"></i> WhatsApp
           </a>
-          
-          <button onClick={handleEmailRequest} className={`${styles.actionBtn} ${styles.btnEmail}`}>
+
+          <button
+            onClick={handleEmailRequest}
+            className={`${styles.actionBtn} ${styles.btnEmail}`}
+          >
             <i className="fas fa-envelope"></i> Orçamento por E-mail
           </button>
-          
-          <Link href="/SpecsPage" className={`${styles.actionBtn} ${styles.btnCall}`}>
+
+          <Link
+            href="/SpecsPage"
+            className={`${styles.actionBtn} ${styles.btnCall}`}
+          >
             <i className="fas fa-info-circle"></i> Especificações
           </Link>
 
-          <button className={`${styles.actionBtn} ${styles.btnCancel}`} onClick={handleFlip}>
+          <button
+            className={`${styles.actionBtn} ${styles.btnCancel}`}
+            onClick={handleFlip}
+          >
             <i className="fas fa-undo"></i> Voltar
           </button>
         </div>

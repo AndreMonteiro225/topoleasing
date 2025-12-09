@@ -10,7 +10,7 @@ export default function IndustrialLevelingPage() {
     if (formElement) {
       // Preenche automaticamente o assunto no formulário
       const event = new CustomEvent('fillForm', { 
-        detail: 'Serviço: Nivelamento Industrial de Alta Precisão' 
+        detail: 'serviço Nivelamento Industrial de Alta Precisão' 
       });
       window.dispatchEvent(event);
 

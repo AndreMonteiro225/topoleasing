@@ -10,7 +10,7 @@ export default function IndustrialAlignmentPage() {
     if (formElement) {
       // Preenche automaticamente o assunto no formulário
       const event = new CustomEvent('fillForm', { 
-        detail: 'Serviço: Alinhamento Industrial de Máquinas a Laser' 
+        detail: 'serviço Alinhamento Industrial de Máquinas a Laser' 
       });
       window.dispatchEvent(event);
 

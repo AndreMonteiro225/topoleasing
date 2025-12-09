@@ -4,23 +4,25 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 
 export default function Header() {
+  const phone = '+5511970680610';
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.head}>
         <div className={styles.logo}>
           <Link href="/"><i className="fas fa-layer-group"></i> Topoleasing</Link>
         </div>
 
         {/* Desktop Menu */}
         <nav className={styles.menuDesktop}>
-          <Link href="/servicesPage">Serviços</Link>
-          <a href="/#catalog">Equipamentos</a>
-          <a href="/#location">Localização</a>
-          <a href="/#contact">Fale Conosco</a>
+          <Link href="/#services">Serviços</Link>
+          <Link href="/CatalogPage">Equipamentos</Link>
+          <Link href="/#location">Localização</Link>
+          <Link href="/#contact">Fale Conosco</Link>
         </nav>
 
         {/* Mobile Toggle */}
@@ -39,15 +41,21 @@ export default function Header() {
           <i className="fas fa-times"></i>
         </div>
         <h3 style={{ color: 'var(--primary-blue)' }}>Menu Rápido</h3>
-        <a href="https://wa.me/5511999999999" className={styles.navBtn}>
+        <a href={`https://wa.me/${phone}`} className={styles.navBtn}>
           <i className="fab fa-whatsapp"></i> WhatsApp
         </a>
-        <a href="#contact" className={styles.navBtn} onClick={toggleMenu}>
-          <i className="fas fa-envelope"></i> Solicitar Orçamento
-        </a>
-        <a href="#location" className={styles.navBtn} onClick={toggleMenu}>
+        <Link href="#contact" className={styles.navBtn} onClick={toggleMenu}>
+          <i className="fas fa-envelope"></i> E-mail
+        </Link>
+        <Link href="/CatalogPage" className={styles.navBtn} onClick={toggleMenu}>
+          <i className="fas fa-layer-group"></i> Equipamentos
+        </Link>
+        <Link href="#services" className={styles.navBtn} onClick={toggleMenu}>
+          <i className="fas fa-concierge-bell"></i> Serviços
+        </Link>
+        <Link href="#location" className={styles.navBtn} onClick={toggleMenu}>
           <i className="fas fa-map-marker-alt"></i> Localização
-        </a>
+        </Link>
       </nav>
     </>
   );

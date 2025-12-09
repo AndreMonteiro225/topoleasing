@@ -36,7 +36,7 @@ export default function MaintenancePage() {
     if (formElement) {
       // Dispara evento para o ContactForm capturar (compatível com sua implementação atual)
       const event = new CustomEvent('fillForm', { 
-        detail: `Serviço de Manutenção para: ${equipmentName}` 
+        detail: `serviço Manutenção para ${equipmentName}` 
       });
       window.dispatchEvent(event);
 
