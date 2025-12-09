@@ -17,13 +17,13 @@ export default function Hero() {
     },
     {
       id: 2,
-      image: "/9,96mbwebp.webp",
+      image: "/hero_2.webp",
       title: "Soluções para sua Obra",
       subtitle: "Aluguel, manutenção e calibração com a qualidade que você confia.",
     },
      {
       id: 3,
-      image: "/9,96mbwebp.webp", 
+      image: "/hero_3.webp", 
       title: "Levantamentos Complexos",
       subtitle: "Do planejamento à execução, garantimos dados confiáveis.",
     },

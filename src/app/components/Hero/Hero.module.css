@@ -1,4 +1,3 @@
-/* ... (Estilos anteriores mantidos: .hero, .bgImageContainer, .overlay, .content, etc.) ... */
 .hero {
   position: relative;
   width: 100%;
@@ -30,7 +29,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right,
+  background: linear-gradient(to left,
       rgba(0, 0, 0, 0.1) 0%,
       rgba(0, 0, 0, 0.6) 50%,
       rgba(0, 0, 0, 0.9) 100%);
@@ -44,6 +43,7 @@
   padding: 0 5%;
   text-align: right;
   color: var(--white);
+  transform: translateX(-50px);
 }
 
 .title {
@@ -235,7 +235,7 @@
     margin: 2rem auto;
     /* Um pouco menor para mobile */
   }
-  
+
   .subtitle {
     margin: 4rem auto;
     font-size: 1.7rem;
