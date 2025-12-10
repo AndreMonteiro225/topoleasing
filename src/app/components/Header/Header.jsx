@@ -16,7 +16,8 @@ export default function Header() {
       <header className={styles.head}>
         <div className={styles.logo}>
           <Link href="/">
-            <Image width={170} height={80} src={"/Gemini_Generated_Image_4468hj4468hj4468.webp"} />
+            <Image quality={75} width={175} height={60} src={"/Gemini_Generated_Image_4468hj4468hj4468.webp"} />
+            
           </Link>
         </div>
 
