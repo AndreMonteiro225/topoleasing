@@ -13,13 +13,14 @@
   background: rgba(255, 255, 255, 0.85);
 }
 
+.logo img{ 
+  background-blend-mode: multiply;
+  background-color: white 0.3;
+  /* opacity: 0.3; */
+}
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-blue);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  background-blend-mode: multiply;
+  background-color: transparent;
 }
 
 .menuDesktop {

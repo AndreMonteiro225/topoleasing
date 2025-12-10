@@ -1,74 +1,76 @@
 .categoriesContainer {
   background: var(--white);
   border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  margin-bottom: 20px;
 }
 
 .categories {
   display: flex;
   flex-wrap: wrap;
-  overflow-x: auto;
-  padding: 20px;
+  padding: 0 20px;
   gap: 1rem;
-  justify-content: center;
-  scrollbar-width: none;
-}
-
-.categories::-webkit-scrollbar {
-  display: none;
+  justify-content: center; /* Centraliza os botões */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .catBtn {
-  width: 8rem;
-  white-space: nowrap;
+  min-width: 120px; /* Garante um tamanho mínimo confortável */
   padding: 10px 20px;
   border: 1px solid var(--primary-blue);
-  border-radius: 20px;
+  border-radius: 25px; /* Bordas mais arredondadas */
   background: var(--white);
   color: var(--primary-blue);
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-  width: calc(100% / 2 - 1rem)
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
-.catBtn.active,
-.catBtn:hover {
+.catBtn.active, .catBtn:hover {
   background: var(--primary-blue);
   color: var(--white);
+  transform: translateY(-2px); /* Efeito sutil de hover */
+  box-shadow: 0 4px 6px rgba(0, 68, 204, 0.2);
 }
 
-/* Definindo a animação */
+/* --- GRID RESPONSIVO INTELIGENTE --- */
+.catalogContainer {
+  padding: 20px;
+  display: grid;
+  /* auto-fit: Preenche o espaço disponível com o máximo de colunas possível.
+    minmax(300px, 1fr): Cada card terá no mínimo 300px. Se houver espaço, ele cresce (1fr).
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Espaço maior entre os cards */
+  max-width: 1600px; /* Limita a largura total em telas muito grandes */
+  margin: 0 auto;
+  justify-items: center; /* Centraliza os cards dentro de suas células (se o card for menor que a célula) */
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Animação */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.catalogContainer {
-  padding: 20px;
-  display: grid;
-  gap: 20px;
-  margin: 0 auto;
-  animation: fadeInUp 2.2s both;
-}
-
-@media (min-width: 768px) {
-  .categories {
-    justify-content: center;
-  }
-
+/* Ajustes finos para Mobile muito pequeno */
+@media (max-width: 480px) {
   .catalogContainer {
-    width: calc(100% / 4 - 2vw);
-
+    grid-template-columns: 1fr; /* Força 1 coluna em telas < 480px */
+    padding: 15px;
   }
-
+  
   .catBtn {
-    width: calc(100% / 5 - 1vw);
+    flex: 1 1 auto; /* Botões esticam para preencher linha */
+    text-align: center;
   }
 }
