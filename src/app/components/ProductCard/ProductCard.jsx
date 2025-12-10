@@ -28,8 +28,8 @@ export default function ProductCard({ item }) {
         <div className={styles.cardFront}>
           <div className={styles.cardImgContainer}>
             <Image
-              width={800}
-              height={570}
+              width={400}
+              height={500}
               quality={75}
               src={item.img}
               alt={item.name}

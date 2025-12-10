@@ -43,7 +43,6 @@
   padding: 0 5%;
   text-align: right;
   color: var(--white);
-  transform: translateX(-50px);
 }
 
 .title {
@@ -212,6 +211,12 @@
 }
 
 /* --- Responsividade --- */
+@media (max-width: 1400px) {
+  .content {
+    transform: translateX(-50px);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     justify-content: center;

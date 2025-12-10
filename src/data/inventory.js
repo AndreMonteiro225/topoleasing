@@ -5,7 +5,7 @@ export const inventory = [
     name: 'Estação Total Topcon ES-105',
     type: 'station',
     desc: 'Tecnologia EDM avançada para medições rápidas e precisas. Possui sistema TSshield™ de segurança e manutenção remota.',
-    img: '/estacao_V-227N.webp',
+    img: '/estacao_V-227N2.webp',
     specs: {
       precisionAngular: '5" (segundos)',
       precisionLinear: '±(2mm + 2ppm)',
