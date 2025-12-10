@@ -21,6 +21,7 @@
 .bgImage {
   object-fit: cover;
   object-position: center;
+
 }
 
 .overlay {
@@ -40,13 +41,14 @@
   position: relative;
   z-index: 10;
   max-width: 600px;
+  margin: 0 auto;
   padding: 0 5%;
   text-align: right;
   color: var(--white);
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 2.4rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -211,13 +213,9 @@
 }
 
 /* --- Responsividade --- */
-@media (max-width: 1400px) {
-  .content {
-    transform: translateX(-50px);
-  }
-}
 
-@media (max-width: 768px) {
+
+@media (min-width: 768px) {
   .hero {
     justify-content: center;
     align-items: flex-end;
@@ -228,22 +226,20 @@
   .content {
     display: flex;
     flex-direction: column;
+    white-space: wrap;
     text-align: center;
     align-items: center;
     justify-content: center;
     padding: 0 20px;
     height: 85%;
+    max-width: 85vw;
   }
 
-  .title {
-    font-size: 2.2rem;
-    margin: 2rem auto;
-    /* Um pouco menor para mobile */
-  }
+
 
   .subtitle {
     margin: 4rem auto;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   .controls {
@@ -260,5 +256,10 @@
         rgba(0, 0, 0, 0.9) 0%,
         rgba(0, 0, 0, 0.5) 60%,
         rgba(0, 0, 0, 0.2) 100%);
+  }
+}
+@media (min-width: 1400px) {
+  .content {
+    transform: translateX(-50px);
   }
 }
