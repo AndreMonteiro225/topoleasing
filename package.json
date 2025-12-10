@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
     "next": "^16.0.8",
     "nodemailer": "^7.0.10",
     "react": "19.2.0",
