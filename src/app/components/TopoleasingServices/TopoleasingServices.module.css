@@ -1,89 +1,192 @@
-.head {
-    color: var(--light-blue);
-    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-    margin-top: 4vh;
-    padding: .6rem 0;
+/* Container Principal */
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-bottom: 60px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Fallback moderno */
+}
+
+/* Wrapper do Vídeo */
+.imageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.imageBg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Máscara Escura */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.85); /* Azul escuro translúcido */
+    z-index: 1;
+}
+
+/* Conteúdo */
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
     text-align: center;
+    padding: 60px 0 40px;
+    color: var(--white);
 }
 
-.head h1,
-.head p {
-    margin: 1rem 2rem;
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.head p {
+.header p {
     font-size: 1.2rem;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* --- ESTILO BASE (MOBILE FIRST) --- */
+/* Grid de Serviços */
 .servicesContainer {
     display: grid;
-    gap: 1.25rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    
-    /* Estado inicial simples para Celular: Invisível e um pouco para baixo */
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s, transform 2.5s;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Quando entra na tela (Mobile e Desktop usam isso como base) */
 .visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Card Styles */
+/* Card de Serviço */
 .serviceCard {
-    background: var(--white, #fff);
-    border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    display: grid;
-    grid-template-rows: .8fr 1fr .4fr;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.serviceLinks {
-    margin-top: 10px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto, minmax(120px, 1fr));
-    align-items: center;
-    
-}
-
-.serviceLinks a {
-    text-decoration: none;
-}
-
-.btnRequest, .btnWhatsapp {
+    background: rgba(255, 255, 255, 0.05); /* Efeito Vidro */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s;
+    height: 100%;
+}
+
+.serviceCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.serviceCard h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.serviceCard p {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Links e Botões */
+.serviceLinks {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btnBase {
+    flex: 1;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: var(--primary-blue);
-    color: var(--white);
-    border-radius: 5px;
-    transition: background-color var(--transition-speed);
-}
-
-.btnRequest:hover {
-    background-color: var(--dark-blue);
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 140px;
 }
 
 .btnWhatsapp {
-    background-color: #25D366;
-     color: white;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
+.btnWhatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    filter: brightness(1.1);
+}
 
+.btnRequest {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
+.btnRequest:hover {
+    background: var(--white);
+    color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .servicesContainer {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .serviceCard {
+        padding: 25px;
+    }
+    
+    .serviceLinks {
+        flex-direction: column;
+    }
+    
+    .btnBase {
+        width: 100%;
+    }
+}

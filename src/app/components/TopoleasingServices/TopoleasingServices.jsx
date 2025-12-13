@@ -2,62 +2,54 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./TopoleasingServices.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function TopoleasingServices() {
-
-  
   const services = [
     {
       id: 1,
       name: "Locação de Equipamentos",
-      description:
-        "Catálogo de equipamentos para locação.",
+      description: "Catálogo completo de Estações Totais, Teodolitos e Níveis para locação imediata.",
       aboutBtn: "/CatalogPage",
     },
     {
       id: 2,
-      description:
-        "Oferecemos serviços de manutenção e suporte para garantir o funcionamento ideal dos equipamentos.",
       name: "Manutenção e Suporte",
+      description: "Laboratório especializado para calibração e conserto, garantindo precisão absoluta.",
       aboutBtn: "/MaintenancePage",
     },
     {
       id: 3,
-      name: "Levantamento planialtimétrico cadastral",
-      description:
-        "Realizamos levantamentos topográficos precisos para diversos fins.",
+      name: "Levantamento Cadastral",
+      description: "Mapeamento planialtimétrico detalhado para regularização e projetos de engenharia.",
       aboutBtn: "/CadastralPlanimetricSurveyPage",
     },
     {
       id: 4,
-      name: "Conferencias diárias",
-      description:
-        "Serviço de conferência diária para monitoramento e controle de obras.",
+      name: "Conferências Diárias",
+      description: "Acompanhamento técnico contínuo em obra para controle de qualidade e execução.",
       aboutBtn: "/DailyConferencesPage",
     },
     {
       id: 5,
       name: "Loteamentos",
-      description:
-        "Serviço especializado em loteamentos para desenvolvimento urbano.",
+      description: "Projetos urbanísticos completos, do estudo de viabilidade à demarcação de lotes.",
       aboutBtn: "/SubdivisionsPage",
     },
     {
       id: 6,
-      name: "Nivelamento industrial",
-      description:
-        "Oferecemos serviços de nivelamento industrial para garantir a precisão em projetos industriais.",
+      name: "Nivelamento Industrial",
+      description: "Alta precisão para bases de máquinas e pisos industriais com níveis digitais.",
       aboutBtn: "/IndustrialLevelingPage",
     },
     {
       id: 7,
-      name: "Alinhamento industrial de máquinas",
-      description:
-        "Oferecemos serviços de alinhamento industrial de máquinas para garantir a eficiência e precisão.",
+      name: "Alinhamento Industrial",
+      description: "Alinhamento a laser de eixos e motores para máxima eficiência e vida útil.",
       aboutBtn: "/IndustrialAlignmentPage",
     },
   ];
-
 
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -71,11 +63,11 @@ export default function TopoleasingServices() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            obs.unobserve(entry.target); // animate once
+            obs.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     obs.observe(el);
@@ -83,33 +75,59 @@ export default function TopoleasingServices() {
   }, []);
 
   return (
-    <main>
-      <div className={styles.head}>
-        <h1>Nossos Serviços</h1>
-        <p>Conheça nossos serviços topográficos.</p>
+    <div className={styles.container}>
+      {/* VÍDEO DE FUNDO */}
+      <div className={styles.imageWrapper}>
+        <Image
+        width={1200}
+        height={800}
+          src="/hero_3.webp"
+          className={styles.imageBg}
+        />
+        <div className={styles.overlay}></div>
       </div>
 
-      <section id="services" style={{ scrollMarginTop: '1.8rem' }}
-        ref={containerRef}
-        className={`${styles.servicesContainer} ${
-          styles["slide-in-blurred-left"]
-        } ${isVisible ? styles.visible : ""}`}
-      >
-        {services.map((service) => (
-          <div className={styles.serviceCard} key={service.id}>
-            <h2>{service.name}</h2>
-            <p>{service.description}</p>
-            <nav className={styles.serviceLinks}>
-              <a href={`https://wa.me/+5511970680610/?text=${encodeURIComponent(`Gostaria de saber mais sobre como funciona o servico de ${service.name}.`)}`} className={styles.btnWhatsapp} target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-whatsapp"> </i>Solicitar pelo WhatsApp
-              </a>
-              <Link href={service.aboutBtn} className={styles.btnRequest}>
-                Sobre
-              </Link>
-            </nav>
-          </div>
-        ))}
-      </section>
-    </main>
+      {/* CONTEÚDO */}
+      <div className={styles.content}>
+        <div className={styles.header}>
+          <h1>Soluções em Topografia</h1>
+          <p>Tecnologia e expertise para elevar o nível do seu projeto.</p>
+        </div>
+
+        <section
+          id="services"
+          ref={containerRef}
+          className={`${styles.servicesContainer} ${
+            isVisible ? styles.visible : ""
+          }`}
+        >
+          {services.map((service) => (
+            <div className={styles.serviceCard} key={service.id}>
+              <div>
+                <h2>{service.name}</h2>
+                <p>{service.description}</p>
+              </div>
+              
+              <nav className={styles.serviceLinks}>
+                <a
+                  href={`https://wa.me/+5511970680610/?text=${encodeURIComponent(
+                    `Olá, gostaria de saber mais sobre o serviço de ${service.name}.`
+                  )}`}
+                  className={`${styles.btnBase} ${styles.btnWhatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                
+                <Link href={service.aboutBtn} className={`${styles.btnBase} ${styles.btnRequest}`}>
+                  Saiba Mais
+                </Link>
+              </nav>
+            </div>
+          ))}
+        </section>
+      </div>
+    </div>
   );
 }
