@@ -1,102 +1,140 @@
+/* Container do Card */
 .card {
-  width: 93%;
-  height: clamp(550px, calc(45vw + 12rem), calc(45vw + 13rem));
-  max-height: 600px;
+  width: 100%;
+  height: 450px; /* Um pouco mais alto para acomodar melhor o conteúdo */
   perspective: 1000px;
-  margin: 5px auto;
+  cursor: pointer;
 }
 
+/* O "Corpo" que gira */
 .cardInner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito de mola suave */
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .cardInner.flipped {
   transform: rotateY(180deg);
 }
 
-.cardFront,
-.cardBack {
+/* FRENTE e VERSO (Base Comum) */
+.cardFront, .cardBack {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  background-color: var(--white);
+  backface-visibility: hidden; /* Esconde o verso */
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
-
+  overflow: hidden;
+  
+  /* Estilo Glassmorphism Escuro */
+  background: rgba(30, 41, 59, 0.95); /* Azul escuro sólido/translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
+/* --- FRENTE --- */
 .cardFront {
   justify-content: space-between;
 }
 
-
 .cardImgContainer {
   width: 100%;
+  height: 220px;
+  position: relative;
+  background-color: #0f172a; /* Fundo para imagem */
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
-.cardImgContainer img {
+
+.cardImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 2px black solid;
+  transition: transform 0.5s ease;
 }
+
+.card:hover .cardImg {
+  transform: scale(1.1); /* Zoom suave na imagem ao passar o mouse */
+}
+
 .cardBody {
-  padding: 15px;
-  flex: 1 0 1;
+  padding: 20px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cardTitle {
-  font-size: 1.2rem;
-  color: var(--dark-blue);
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .cardDesc {
-  color: #666;
-  font-size: 0.9rem;
+  color: #94a3b8; /* Cinza azulado claro */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limita a 3 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .btnFlip {
-  background-color: var(--primary-blue);
-  color: var(--white);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); /* Azul vibrante */
+  color: #fff;
   border: none;
-  padding: 12px;
+  padding: 12px 24px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
 .btnFlip:hover {
-  background-color: var(--dark-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
 }
 
-/* Verso */
+/* --- VERSO --- */
 .cardBack {
-  background-color: var(--dark-blue);
-  color: var(--white);
   transform: rotateY(180deg);
-  padding: 20px;
+  background: linear-gradient(145deg, #1e293b, #0f172a); /* Gradiente sutil no verso */
+  padding: 30px;
   justify-content: center;
+  align-items: center;
   gap: 15px;
 }
 
+.cardBack h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
 
+.cardBack p {
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+/* Botões de Ação no Verso */
 .actionBtn {
   display: flex;
   align-items: center;
@@ -104,37 +142,57 @@
   gap: 10px;
   padding: 12px;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .btnWhatsapp {
-  background-color: #25D366;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: white;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btnWhatsapp:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
 .btnEmail {
-  background-color: var(--white);
-  color: var(--dark-blue);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.btnCall {
-  background-color: #ff9900;
+.btnEmail:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btnSpec {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Laranja */
   color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btnSpec:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
 .btnCancel {
-  background-color: transparent;
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ccc;
-  margin-top: 5px;
+  color: #94a3b8;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  padding: 8px;
 }
 
-@media (min-width: 1200px) {
-  .card {
-    width: calc(100% / 4) - 2rem;
-  }
+.btnCancel:hover {
+  color: #fff;
+  border-color: #fff;
 }

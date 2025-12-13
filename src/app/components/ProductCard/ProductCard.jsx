@@ -1,60 +1,86 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./ProductCard.module.css";
-import Link from "next/link";
 import Image from "next/image";
-import { inventory } from "../../../data/inventory";
+import Link from "next/link";
 
 export default function ProductCard({ item }) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const router = useRouter();
 
   const handleFlip = () => setIsFlipped(!isFlipped);
 
   const handleEmailRequest = () => {
-    // Lógica de scroll e preenchimento via evento customizado
-    const event = new CustomEvent("fillForm", { detail: item.name });
-    window.dispatchEvent(event);
+    // 1. Redireciona para a home com parâmetro do produto
+    router.push(`/?product=${encodeURIComponent(item.name)}#contact`, { scroll: false });
 
-    const formSection = document.getElementById("contact");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
+    // 2. Dispara evento customizado (fallback para se já estiver na home)
+    const event = new CustomEvent("fillForm", { detail: item.name });
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(event);
     }
+
+    // 3. Scroll manual garantido
+    setTimeout(() => {
+      const formSection = document.getElementById("contact");
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // Pequeno delay para garantir que a navegação terminou
   };
-  const phone = "+5511970680610";
+
+  const phone = "5511970680610"; // Removido o '+' para evitar problemas em alguns links
+
+  // Lógica inteligente para imagem:
+  // Se item.img não for um caminho de arquivo (ex: não tem barra), usa placeholder.
+  // Caso contrário, usa a imagem real.
+  const isRealImage = item.img && (item.img.startsWith("/") || item.img.startsWith("http"));
+  
+  // URL para imagem real ou placeholder gerado
+  const displayImage = isRealImage 
+    ? item.img 
+    : `https://placehold.co/400x500/1e293b/ffffff?text=${encodeURIComponent(item.name)}`;
+
   return (
     <article className={styles.card}>
       <div className={`${styles.cardInner} ${isFlipped ? styles.flipped : ""}`}>
-        {/* FRENTE */}
+        
+        {/* --- FRENTE --- */}
         <div className={styles.cardFront}>
           <div className={styles.cardImgContainer}>
             <Image
-              width={400}
-              height={500}
-              quality={75}
-              src={item.img}
+              src={displayImage}
               alt={item.name}
+              fill // Preenche o container pai
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={styles.cardImg}
+              quality={80}
             />
           </div>
+          
           <div className={styles.cardBody}>
-            <h3 className={styles.cardTitle}>{item.name}</h3>
-            <p className={styles.cardDesc}>{item.desc}</p>
+            <div>
+              <h3 className={styles.cardTitle}>{item.name}</h3>
+              <p className={styles.cardDesc}>{item.desc}</p>
+            </div>
             <button className={styles.btnFlip} onClick={handleFlip}>
-              SOLICITAR
+              Ver Opções
             </button>
           </div>
         </div>
 
-        {/* VERSO */}
+        {/* --- VERSO --- */}
         <div className={styles.cardBack}>
           <h3>{item.name}</h3>
-          <p>Escolha uma opção:</p>
+          <p>Como deseja solicitar?</p>
 
           <a
             href={`https://wa.me/${phone}?text=Olá, o equipamento ${encodeURIComponent(
               item.name
             )} se encontra disponível para locação?`}
             target="_blank"
+            rel="noopener noreferrer"
             className={`${styles.actionBtn} ${styles.btnWhatsapp}`}
           >
             <i className="fab fa-whatsapp"></i> WhatsApp
@@ -69,9 +95,9 @@ export default function ProductCard({ item }) {
 
           <Link
             href="/SpecsPage"
-            className={`${styles.actionBtn} ${styles.btnCall}`}
+            className={`${styles.actionBtn} ${styles.btnSpec}`}
           >
-            <i className="fas fa-info-circle"></i> Especificações
+            <i className="fas fa-info-circle"></i> Especificações Técnicas
           </Link>
 
           <button
