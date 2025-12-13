@@ -20,7 +20,16 @@ export default function Catalog() {
   ];
 
   return (
-    <section id="catalog">
+    <section id="catalog" className={styles.catalogSection}>
+      
+      {/* Header da Seção */}
+      <div className={styles.header}>
+        <h2 className={styles.title}>Nossa Frota de Equipamentos</h2>
+        <p className={styles.subtitle}>
+          Selecione a categoria abaixo e encontre a tecnologia ideal para elevar a precisão da sua obra.
+        </p>
+      </div>
+
       {/* Filtros */}
       <div className={styles.categoriesContainer}>
         <div className={styles.categories}>
@@ -37,11 +46,19 @@ export default function Catalog() {
       </div>
 
       {/* Grid de Cards */}
-      {/* key={filter} para forçar o re-render e disparar a animação CSS */}
+      {/* key={filter} força a recriação do container para disparar a animação CSS a cada troca */}
       <div key={filter} className={styles.catalogContainer}>
-        {filteredItems.map(item => (
-          <ProductCard key={item.id} item={item} />
-        ))}
+        {filteredItems.length > 0 ? (
+          filteredItems.map(item => (
+            <ProductCard key={item.id} item={item} />
+          ))
+        ) : (
+          <div className={styles.emptyState}>
+            <i className={`fas fa-search ${styles.emptyStateIcon}`}></i>
+            <h3>Nenhum equipamento encontrado</h3>
+            <p>Não há itens disponíveis nesta categoria no momento.</p>
+          </div>
+        )}
       </div>
     </section>
   );
