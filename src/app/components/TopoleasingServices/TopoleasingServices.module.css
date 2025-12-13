@@ -87,32 +87,3 @@
 
 
 
-/* --- ANIMAÇÃO AVANÇADA APENAS PARA DESKTOP (Telas maiores que 768px) --- */
-@media (min-width: 768px) {
-    @keyframes slideInBlurLeft {
-        from {
-            transform: translateY(-200px) scaleX(2) scaleX(.2);
-            filter: blur(20px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0) scaleY(1) scaleX(1);
-            filter: blur(0);
-            opacity: 1;
-        }
-    }
-
-    /* Sobrescreve o comportamento simples apenas no Desktop */
-    .slide-in-blurred-left {
-        /* Estado inicial da animação complexa */
-        transform: translateY(-200px) scaleX(2) scaleX(.2);
-        filter: blur(20px);
-        opacity: 0; 
-        transition: none; 
-    }
-
-      .slide-in-blurred-left.visible {
-        animation: slideInBlurLeft 0.8s both;
-        transform: none;
-    }
-}
