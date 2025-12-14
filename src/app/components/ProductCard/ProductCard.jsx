@@ -52,8 +52,8 @@ export default function ProductCard({ item }) {
             <Image
               src={displayImage}
               alt={item.name}
-              fill // Preenche o container pai
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fill 
+              sizes="(max-width: 700px) 100vw, (max-height: 700px) 100vw"
               className={styles.cardImg}
               quality={80}
             />

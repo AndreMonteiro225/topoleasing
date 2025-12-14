@@ -5,7 +5,7 @@ export const inventory = [
     name: 'Estação Total Topcon ES-105',
     type: 'station',
     desc: 'Tecnologia EDM avançada para medições rápidas e precisas. Possui sistema TSshield™ de segurança e manutenção remota.',
-    img: '/estacao_V-227N2.webp',
+    img: '/estação total ES-105.webp',
     specs: {
       precisionAngular: '5" (segundos)',
       precisionLinear: '±(2mm + 2ppm)',
@@ -23,7 +23,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-245NW',
     type: 'station',
     desc: 'Conectividade Bluetooth integrada e teclado alfanumérico completo. Ideal para levantamentos que exigem agilidade na entrada de dados.',
-    img: '/estacao_V-227N.webp',
+    img: '/Design sem nome (1).webp',
     specs: {
       precisionAngular: '5"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -41,7 +41,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-246NW',
     type: 'station',
     desc: 'Versão de 6 segundos da série GTS-240NW. Oferece a mesma conectividade sem fio com excelente custo-benefício.',
-    img: '/estacao_V-227N.webp',
+    img: '/403x600.webp',
     specs: {
       precisionAngular: '6"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -59,7 +59,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-235W',
     type: 'station',
     desc: 'A clássica série GTS agora sem cabos. Robustez comprovada em campo com a liberdade da comunicação Bluetooth.',
-    img: '/estacao_V-227N.webp',
+    img: '/teste_stretch.webp',
     specs: {
       precisionAngular: '5"',
       precisionLinear: '±(2mm + 2ppm)',
@@ -77,7 +77,7 @@ export const inventory = [
     name: 'Estação Total Topcon GTS-236W',
     type: 'station',
     desc: 'Modelo de 6 segundos da série "W". Perfeita para obras de terraplenagem e locação onde a robustez é fundamental.',
-    img: '/estacao_V-227N.webp',
+    img: '/teste_2.webp',
     specs: {
       precisionAngular: '6"',
       precisionLinear: '±(2mm + 2ppm)',

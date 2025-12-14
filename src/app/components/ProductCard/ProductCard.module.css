@@ -3,7 +3,6 @@
   width: 100%;
   height: 450px; /* Um pouco mais alto para acomodar melhor o conteúdo */
   perspective: 1000px;
-  cursor: pointer;
 }
 
 /* O "Corpo" que gira */
