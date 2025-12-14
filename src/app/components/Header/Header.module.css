@@ -201,5 +201,7 @@
 @media (max-width: 768px) {
   .menuDesktop { display: none; }
   .menuToggle { display: flex; }
-  .header { padding: 15px 20px; }
+  .header { padding: 15px 20px;
+    margin-bottom: 4rem;
+ }
 }

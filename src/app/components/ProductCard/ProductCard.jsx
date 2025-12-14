@@ -13,7 +13,7 @@ export default function ProductCard({ item }) {
 
   const handleEmailRequest = () => {
     // 1. Redireciona para a home com parâmetro do produto
-    router.push(`/?product=${encodeURIComponent(item.name)}#contact`, { scroll: false });
+    router.push(`/CatalogPage?product=${encodeURIComponent(item.name)}#budget-form`, { scroll: false });
 
     // 2. Dispara evento customizado (fallback para se já estiver na home)
     const event = new CustomEvent("fillForm", { detail: item.name });

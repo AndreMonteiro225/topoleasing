@@ -59,10 +59,6 @@
   transition: transform 0.5s ease;
 }
 
-.card:hover .cardImg {
-  transform: scale(1.1); /* Zoom suave na imagem ao passar o mouse */
-}
-
 .cardBody {
   padding: 20px;
   flex-grow: 1;
@@ -116,17 +112,17 @@
 .cardBack {
   transform: rotateY(180deg);
   background: linear-gradient(145deg, #1e293b, #0f172a); /* Gradiente sutil no verso */
-  padding: 30px;
+  padding: 20px;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .cardBack h3 {
-  font-size: 1.4rem;
   color: #fff;
   margin-bottom: 10px;
   font-weight: 700;
+  font-size: 1rem;
 }
 
 .cardBack p {
@@ -140,7 +136,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px;
+  padding: 15px;
   border-radius: 8px;
   font-weight: 600;
   border: none;
@@ -179,199 +175,6 @@
 }
 
 .btnSpec:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-.btnCancel {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #94a3b8;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  padding: 8px;
-}
-
-.btnCancel:hover {
-  color: #fff;
-  border-color: #fff;
-}/* Container do Card */
-.card {
-  width: 100%;
-  height: 450px; /* Um pouco mais alto para acomodar melhor o conteúdo */
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-/* O "Corpo" que gira */
-.cardInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito de mola suave */
-  transform-style: preserve-3d;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.cardInner.flipped {
-  transform: rotateY(180deg);
-}
-
-/* FRENTE e VERSO (Base Comum) */
-.cardFront, .cardBack {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Esconde o verso */
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  
-  /* Estilo Glassmorphism Escuro */
-  background: rgba(30, 41, 59, 0.95); /* Azul escuro sólido/translúcido */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-}
-
-/* --- FRENTE --- */
-.cardFront {
-  justify-content: space-between;
-}
-
-.cardImgContainer {
-  width: 100%;
-  height: 220px;
-  position: relative;
-  background-color: #0f172a; /* Fundo para imagem */
-  overflow: hidden;
-}
-
-.cardImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.cardBody {
-  padding: 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cardTitle {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.cardDesc {
-  color: #94a3b8; /* Cinza azulado claro */
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limita a 3 linhas */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.btnFlip {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); /* Azul vibrante */
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  width: 100%;
-  border-radius: 8px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-}
-
-.btnFlip:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-}
-
-/* --- VERSO --- */
-.cardBack {
-  transform: rotateY(180deg);
-  background: linear-gradient(145deg, #1e293b, #0f172a); /* Gradiente sutil no verso */
-  padding: 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.cardBack h3 {
-  font-size: 1.4rem;
-  color: #fff;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.cardBack p {
-  color: #cbd5e1;
-  margin-bottom: 15px;
-}
-
-/* Botões de Ação no Verso */
-.actionBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.btnWhatsapp {
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.btnWhatsapp:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-}
-
-.btnEmail {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btnEmail:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.btnCall {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Laranja */
-  color: white;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-}
-
-.btnCall:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
 }

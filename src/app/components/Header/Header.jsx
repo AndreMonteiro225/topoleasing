@@ -25,7 +25,7 @@ export default function Header() {
             className={styles.logo}
             src="/logo.svg"
             width={137}
-            height={42}
+            height={40}
             quality={80}
           />
         </Link>
