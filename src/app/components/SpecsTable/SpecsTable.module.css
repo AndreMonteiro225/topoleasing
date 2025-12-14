@@ -3,7 +3,6 @@
   padding-top: 60px;
   padding-bottom: 80px;
   min-height: 100vh;
-  /* Fundo da página já é definido globalmente em page.module.css ou layout */
   background: transparent; 
 }
 
@@ -161,8 +160,8 @@
   .title { font-size: 2rem; }
   
   .tableWrapper {
-    margin: 0 -20px; /* Estica até a borda no mobile */
-    width: calc(100% + 40px);
+    margin: 0 -10px; 
+    width: calc(100% + 15px);
     border-radius: 0;
     border-left: none;
     border-right: none;
@@ -171,13 +170,13 @@
   /* Ajuste para a coluna fixa não comer muito espaço no mobile */
   .specsTable thead th:first-child,
   .specsTable tbody td:first-child {
-    width: 140px;
+    width: 120px;
     padding-left: 15px;
     font-size: 0.85rem;
   }
   
   .specsTable tbody td {
-    padding: 15px 10px;
+    padding: 15px 5px;
     font-size: 0.9rem;
   }
 }

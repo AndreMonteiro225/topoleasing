@@ -1,11 +1,13 @@
-import Catalog from "../components/Catalog/Catalog";
-import ContactForm from "../components/ContactForm/ContactForm";
-import styles from "./CatalogPage.module.css";
+import Catalog from '../components/Catalog/Catalog';
+import ContactForm from '../components/ContactForm/ContactForm';
+import styles from './CatalogPage.module.css';
+
 export default function CatalogPage() {
-  return (
-    <div className={styles.mainSection}>
-      <Catalog />
-      <ContactForm />
-    </div>
-  );
+    return (
+        <main className={styles.main}>
+            <Catalog />
+            <div className={styles.spacer}></div>
+            <ContactForm />
+        </main>
+    );
 }

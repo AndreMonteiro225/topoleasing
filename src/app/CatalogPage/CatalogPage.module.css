@@ -1,0 +1,14 @@
+/* Container que envolve toda a página */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Fundo Dark Premium consistente com a Home */
+  background: linear-gradient(to bottom, #0f172a 0%, #1e293b 100%);
+  color: #fff;
+  padding-top: 80px; /* Espaço para o Header Fixo */
+}
+
+.spacer {
+  height: 40px;
+}

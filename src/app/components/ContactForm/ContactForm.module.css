@@ -1,55 +1,85 @@
 .contactSection {
-  background-color: var(--light-blue);
-  padding: 40px 20px;
-  margin-top: 40px;
+  padding: 60px 20px;
+  /* Fundo transparente para mesclar com a página */
+  background-color: transparent; 
 }
 
 .formContainer {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
-  background: var(--white);
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  
+  /* Estilo Glassmorphism Dark */
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .formContainer h2 {
-  color: var(--dark-blue);
-  margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 30px;
   text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .formGroup label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #cbd5e1; /* Cinza claro */
 }
 
 .formGroup input, .formGroup textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 12px 15px;
+  /* Inputs Escuros */
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   font-size: 1rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus, .formGroup textarea:focus {
+  outline: none;
+  border-color: #F0A500; /* Dourado no foco */
+  box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.2);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .btnSubmit {
-  background-color: var(--dark-blue);
-  color: var(--white);
+  background: linear-gradient(135deg, #F0A500 0%, #d97706 100%);
+  color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 15px 30px;
   width: 100%;
   font-size: 1.1rem;
-  border-radius: 5px;
+  font-weight: 700;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(240, 165, 0, 0.3);
+  margin-top: 10px;
 }
 
 .btnSubmit:hover {
-  background-color: var(--primary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.5);
+  filter: brightness(1.1);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
