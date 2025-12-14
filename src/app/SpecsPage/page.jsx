@@ -1,3 +1,4 @@
+import ContactForm from '../components/ContactForm/ContactForm';
 import SpecsTable from '../components/SpecsTable/SpecsTable';
 import styles from './SpecsPage.module.css';
 export default function SpecsPage() {
@@ -5,6 +6,7 @@ export default function SpecsPage() {
     <div>
         
         <SpecsTable />
+        <ContactForm/>
     </div>
     );
 };

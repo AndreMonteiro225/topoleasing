@@ -1,146 +1,95 @@
-"use client";
-import { useState } from "react";
-import { inventory } from "../../../data/inventory";
-import ContactForm from "../../components/ContactForm/ContactForm";
-import styles from "./SpecsTable.module.css";
+'use client';
+import { inventory } from '../../../data/inventory';
+import ContactForm from '../ContactForm/ContactForm';
+import styles from './SpecsTable.module.css';
 
 export default function SpecsTable() {
+
+  // Filtra apenas as estações totais para comparação
+  const stations = inventory.filter(item => item.type === 'station');
+
   // Função para preencher o formulário
   const handleRentClick = (modelName) => {
-    const formElement = document.getElementById("budget-form");
+    const formElement = document.getElementById('budget-form'); // ID do formulário na ContactForm
     if (formElement) {
-      const event = new CustomEvent("fillForm", {
-        detail: `${modelName}`,
+      const event = new CustomEvent('fillForm', { 
+        detail: `Aluguel de Estação Total: ${modelName}` 
       });
       window.dispatchEvent(event);
-      formElement.scrollIntoView({ behavior: "smooth" });
+      formElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  const [filter, setFilter] = useState("all");
-
-  const filteredItems =
-    filter === "all"
-      ? inventory
-      : inventory.filter((item) => item.type === filter);
-
-  const categories = [
-    { id: "all", label: "Todos" },
-    { id: "station", label: "Estações Totais" },
-    { id: "theodolite", label: "Teodolitos" },
-    { id: "level", label: "Níveis" },
-    { id: "accessory", label: "Acessórios" },
-  ];
 
   return (
-    <main className={styles.container}>
+    <section className={styles.container}>
+      
       <div className={styles.header}>
-        <h1 className={styles.title}>Comparativo de Estações Totais</h1>
+        <h2 className={styles.title}>Comparativo Técnico</h2>
         <p className={styles.subtitle}>
-          Encontre o equipamento ideal para a precisão que sua obra exige.
+          Compare as especificações e encontre o equipamento ideal para a precisão que sua obra exige.
         </p>
       </div>
-      <section id="catalog">
-        {/* Filtros */}
-        <div className={styles.categoriesContainer}>
-          <div className={styles.categories}>
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                className={`${styles.catBtn} ${
-                  filter === cat.id ? styles.active : ""
-                }`}
-                onClick={() => setFilter(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <div className={styles.tableWrapper}>
         <table className={styles.specsTable}>
           <thead>
             <tr>
-              <th style={{ position: "sticky", left: 0 }}>Especificações</th>
-              {filteredItems.map((station) => (
+              <th>Modelo</th>
+              {stations.map(station => (
                 <th key={station.id}>
-                  {/* Placeholder de imagem - idealmente usaria station.img se fosse um path real */}
-                  <div
-                    className={styles.modelImage}
-                    style={{
-                      background: "#fff",
-                      color: "#333",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    [Foto {station.img}]
+                  {/* Placeholder ou Imagem Real se houver */}
+                  {/* <img src={station.img} alt={station.name} className={styles.modelImage} /> */}
+                  <div className={styles.modelImage} style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '0.7rem', textAlign: 'center'}}>
+                     [Foto {station.img}]
                   </div>
-                  {station.name}
+                  {station.name.replace('Estação Total ', '')} {/* Encurta o nome para caber melhor */}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={{ position: "sticky" }}>Precisão Angular</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.precisionAngular || "-"}</td>
-              ))}
+              <td>Precisão Angular</td>
+              {stations.map(s => <td key={s.id}>{s.specs.precisionAngular || '-'}</td>)}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Precisão Linear (EDM)</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.precisionLinear || "-"}</td>
-              ))}
+              <td>Precisão Linear</td>
+              {stations.map(s => <td key={s.id}>{s.specs.precisionLinear || '-'}</td>)}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Alcance Sem Prisma</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.rangeNonPrism || "N/A"}</td>
-              ))}
+              <td>Alcance s/ Prisma</td>
+              {stations.map(s => <td key={s.id}>{s.specs.rangeNonPrism || 'N/A'}</td>)}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Alcance Com Prisma</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.rangePrism || "Até 3.000m"}</td>
-              ))}
+              <td>Alcance c/ Prisma</td>
+              {stations.map(s => <td key={s.id}>{s.specs.rangePrism || 'Até 3.000m'}</td>)}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Conectividade</td>
-              {filteredItems.map((s) => (
+              <td>Conectividade</td>
+              {stations.map(s => (
                 <td key={s.id}>
-                  {s.specs.connectivity ||
-                    s.specs.communication ||
-                    "Serial RS-232"}
+                  {s.specs.connectivity || s.specs.communication || 'Serial'}
                 </td>
               ))}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Proteção IP</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.protection || "-"}</td>
-              ))}
+              <td>Proteção IP</td>
+              {stations.map(s => <td key={s.id}>{s.specs.protection || '-'}</td>)}
             </tr>
             <tr>
-              <td style={{ position: "sticky" }}>Bateria</td>
-              {filteredItems.map((s) => (
-                <td key={s.id}>{s.specs.battery || "-"}</td>
-              ))}
+              <td>Bateria</td>
+              {stations.map(s => <td key={s.id}>{s.specs.battery || '-'}</td>)}
             </tr>
             {/* Linha de Ação (Botão) */}
             <tr>
-              <td style={{ position: "sticky" }}></td>
-              {filteredItems.map((s) => (
+              <td>Disponibilidade</td>
+              {stations.map(s => (
                 <td key={s.id}>
-                  <button
+                  <button 
                     className={styles.btnRent}
                     onClick={() => handleRentClick(s.name)}
                   >
-                    Solicitar
+                    Cotar
                   </button>
                 </td>
               ))}
@@ -148,8 +97,6 @@ export default function SpecsTable() {
           </tbody>
         </table>
       </div>
-
-      <ContactForm />
-    </main>
+    </section>
   );
 }

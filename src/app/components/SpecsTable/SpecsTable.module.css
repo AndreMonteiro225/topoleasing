@@ -1,201 +1,183 @@
+/* Container Principal */
 .container {
-  padding-top: 40px;
+  padding-top: 60px;
   padding-bottom: 80px;
   min-height: 100vh;
-  background-color: var(--gray);
+  /* Fundo da página já é definido globalmente em page.module.css ou layout */
+  background: transparent; 
 }
 
+/* Header da Seção */
 .header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   padding: 0 20px;
-}
-.categoriesContainer{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.categories {
-  margin-bottom: 20px;
-  gap: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.catBtn {
-  white-space: nowrap;
-  padding: 10px 15px;
-  border: 1px solid var(--primary-blue);
-  border-radius: 20px;
-  background: var(--white);
-  color: var(--primary-blue);
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-  width: calc(100% / 2 - 1.2rem);
-}
-
-.catBtn.active {
-  background: var(--primary-blue);
-  color: var(--white);
 }
 
 .title {
-  color: var(--dark-blue);
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
 }
 
 .subtitle {
-  color: #666;
+  color: #94a3b8;
   font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* --- CONTAINER DA TABELA (SCROLL NO MOBILE) --- */
+/* --- WRAPPER DA TABELA (Scroll e Vidro) --- */
 .tableWrapper {
   width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
-  overflow-x: auto; /* Permite scroll horizontal em telas pequenas */
+  padding: 5px; /* Espaço para a sombra não cortar */
+  
+  /* Permite scroll horizontal em telas menores */
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  
+  /* Efeito Glassmorphism no container */
+  background: rgba(30, 41, 59, 0.4); 
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .specsTable {
   width: 100%;
-  /* border-collapse: separate; */
+  border-collapse: separate; /* Necessário para border-radius funcionar */
   border-spacing: 0;
-  background: var(--white);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  min-width: 800px; /* Garante que a tabela não fique espremida */
+  min-width: 900px; /* Garante largura mínima para não quebrar o layout */
 }
 
 /* --- CABEÇALHO DA TABELA --- */
 .specsTable thead th {
-  background-color: var(--primary-blue);
-  color: var(--white);
+  background: rgba(15, 23, 42, 0.9); /* Fundo quase sólido para o header */
+  color: #fff;
   padding: 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
   text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.1);
-}
-
-.specsTable thead th:first-child {
-  background-color: var(--dark-blue); /* Coluna de rótulos mais escura */
-  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
-  left: 0;
-  z-index: 2;
-  width: 250px;
+  top: 0;
+  z-index: 10;
 }
 
-.specsTable thead th:last-child {
-  border-right: none;
+/* Primeira célula do header (canto superior esquerdo) */
+.specsTable thead th:first-child {
+  left: 0;
+  z-index: 20; /* Fica acima de tudo */
+  background: rgba(15, 23, 42, 0.95);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  width: 200px;
+  text-align: left;
+  padding-left: 25px;
 }
 
 .modelImage {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   margin: 0 auto 10px auto;
   display: block;
-  background: #fff;
+  /* Fundo sutil para a imagem se destacar */
+  background: rgba(255, 255, 255, 0.05); 
   border-radius: 8px;
   padding: 5px;
 }
 
 /* --- CORPO DA TABELA --- */
 .specsTable tbody td {
-  padding: 15px 20px;
-  border-bottom: 1px solid #eee;
-  border-right: 1px solid #eee;
-  color: var(--text-color);
+  padding: 18px 20px;
+  color: #cbd5e1;
   text-align: center;
   font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
 }
 
-/* Primeira coluna (Rótulos) */
+/* Coluna de Rótulos (Sticky à esquerda) */
 .specsTable tbody td:first-child {
-  font-weight: 700;
-  color: var(--dark-blue);
-  text-align: left;
-  background-color: #f9f9f9;
   position: sticky;
   left: 0;
-  z-index: 1;
-  border-right: 2px solid #ddd; /* Separação visual clara */
+  z-index: 5;
+  background: rgba(15, 23, 42, 0.95); /* Fundo sólido para cobrir o scroll */
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 25px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para dar profundidade */
 }
 
+/* Efeito de Hover na Linha */
+.specsTable tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Efeito de Hover na Coluna Fixa */
+.specsTable tbody tr:hover td:first-child {
+  background-color: rgba(30, 41, 59, 1);
+}
+
+/* Última linha sem borda */
 .specsTable tbody tr:last-child td {
   border-bottom: none;
 }
 
-.specsTable tbody tr:hover td {
-  background-color: var(--light-blue); /* Highlight na linha ao passar o mouse */
-}
-
-/* Highlight na primeira coluna ao passar o mouse na linha */
-.specsTable tbody tr:hover td:first-child {
-  background-color: #e6eefc; 
-}
-
 /* --- BOTÕES DE AÇÃO --- */
 .btnRent {
-  background-color: #28a745; /* Verde Sucesso */
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); /* Verde WhatsApp */
   color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
+  padding: 10px 24px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
-  transition: all 0.2s;
-  display: inline-block;
-  margin-top: 5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+  white-space: nowrap;
 }
 
 .btnRent:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-}
-
-/* --- ÍCONES E DESTAQUES --- */
-.featureYes {
-  color: #28a745;
-  font-weight: bold;
-}
-
-.featureNo {
-  color: #dc3545;
-  opacity: 0.5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+  filter: brightness(1.1);
 }
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-  .title { font-size: 1.8rem; }
-  .catBtn {
-    display: flex;
-    width: 80vw;
-    justify-content: center;
-    margin: 2px auto;
+  .title { font-size: 2rem; }
+  
+  .tableWrapper {
+    margin: 0 -20px; /* Estica até a borda no mobile */
+    width: calc(100% + 40px);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
-  /* Ajustes para a coluna fixa não quebrar o layout */
+
+  /* Ajuste para a coluna fixa não comer muito espaço no mobile */
   .specsTable thead th:first-child,
   .specsTable tbody td:first-child {
-    position: static; 
-    border-right: 1px solid #eee;
-    width: 8vw;
+    width: 140px;
+    padding-left: 15px;
+    font-size: 0.85rem;
   }
   
-  .specsTable {
-    min-width: auto; /* Deixa fluir */
-    display: block; /* Transforma em bloco para scrollar */
-    overflow-x: auto;
+  .specsTable tbody td {
+    padding: 15px 10px;
+    font-size: 0.9rem;
   }
 }
