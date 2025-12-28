@@ -82,6 +82,7 @@ export default function TopoleasingServices() {
         width={1200}
         height={800}
           src="/hero_3.webp"
+          alt="Equipamentos de Topografia"
           className={styles.imageBg}
         />
         <div className={styles.overlay}></div>

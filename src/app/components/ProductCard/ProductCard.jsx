@@ -52,10 +52,12 @@ export default function ProductCard({ item }) {
             <Image
               src={displayImage}
               alt={item.name}
-              fill 
+              // fill
+              height={500}
+              width={400}
               sizes="(max-width: 700px) 100vw, (max-height: 700px) 100vw"
               className={styles.cardImg}
-              quality={80}
+              quality={75}
             />
           </div>
           
