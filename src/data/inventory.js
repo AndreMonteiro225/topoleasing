@@ -273,20 +273,6 @@ export const inventory = [
     }
   },
   {
-    id: 'level-topcon-atb4',
-    name: 'Nível Automático Topcon AT-B4',
-    type: 'level',
-    desc: 'Compensador magnético estável e resistente a vibrações. Padrão da indústria para nivelamento de obras.',
-    img: '/estacao_V-227N.webp',
-    specs: {
-      accuracy: '2.0mm',
-      magnification: '24x',
-      compensator: 'Magnético',
-      protection: 'IPX6',
-      weight: '1.7kg'
-    }
-  },
-  {
     id: 'level-kolida-kl32',
     name: 'Nível Automático Kolida KL-32',
     type: 'level',

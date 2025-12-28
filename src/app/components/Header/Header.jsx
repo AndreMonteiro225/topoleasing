@@ -26,7 +26,7 @@ export default function Header() {
             src="/logo.svg"
             width={137}
             height={40}
-            quality={80}
+            quality={75}
           />
         </Link>
 
